@@ -1,0 +1,15 @@
+.none {
+    color: rgb(217, 0, 0) !important;
+}
+
+.dropdown-menu .dropdown-item {
+    color: #0061f3;
+}
+.dropdown-menu {
+    background-color: rgb(93, 93, 93) !important;
+    margin-left: 3rem;
+}
+.ltr-space {
+    text-decoration: none !important;
+    margin-left: 1rem;
+}
