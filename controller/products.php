@@ -15,3 +15,11 @@ function CountProducts(){
     $result = connect() -> query($sql);
     return $result;
 }
+
+function FourProucts(){
+
+    $sql = "SELECT * FROM products LIMIT 4";
+    $result = connect() -> query($sql);
+    
+    return $result;
+}

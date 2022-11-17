@@ -8,3 +8,5 @@ $AllProducts = GetProducts();
 
 $ProductsCount = CountProducts();
 
+$FourProducts = FourProucts();
+

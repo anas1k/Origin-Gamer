@@ -1,6 +1,7 @@
 <?php
-
     include('include/require.php');
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,19 +29,19 @@
             <div class="position mt-5">
                 <ul class="nav nav-pills flex-column">
                     <li class="nav-item m-2">
-                        <a class="nav-link active" aria-current="page" href="#">
+                        <a class="nav-link active d-flex align-items-center" aria-current="page" href="#">
                             <i class="text-white fa fa-house"></i>
                             <span class="m-4 text-white">Home</span>
                         </a>
                     </li>
                     <li class="nav-item m-2">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link d-flex align-items-center" href="#">
                             <i class="fa fa-boxes-stacked text-white"></i>
                             <span class="m-4 text-white">Products</span>
                         </a>
                     </li>
                     <li class="nav-item m-2">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link d-flex align-items-center" href="#">
                             <i class="fa fa-list text-white"></i>
                             <span class="m-4 text-white">Categorie</span>
                         </a>
@@ -88,7 +89,7 @@
                             <div class="card">
                                 <h5 class="card-header">Products</h5>
                                 <div class="card-body">
-                                    <h5 class="card-title"><?php echo CountProducts()-> num_rows; ?></h5>
+                                    <h5 class="card-title"><?= CountProducts() -> num_rows; ?></h5>
                                     <p class="card-text text-success">4.6% increase since last month</p>
                                 </div>
                             </div> 
@@ -130,7 +131,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach($AllProducts as $product) {?>
+                                                <?php foreach($FourProducts as $product) {?>
                                                 <tr>
                                                     <th scope="row"><?= $product['id']; ?></th>
                                                     <td><?= $product['name']; ?></td>
