@@ -20,7 +20,7 @@
     </head>
     <body>
         <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar collapse" style="background-color: #1e1e2d">
-            <a class="" href="#"><img src="assets/img/Logo.png" alt="" class="logo" /></a>
+            <a class="" href="#"><img src="assets/img/logo/Logo.png" alt="" class="logo" /></a>
             <div class="position mt-5">
                 <ul class="nav nav-pills flex-column">
                     <li class="nav-item m-2">
@@ -73,7 +73,7 @@
                     <div class="row my-4">
                         <div class="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
                             <div class="card">
-                                <h5 class="card-header">Customers</h5>
+                                <h5 class="card-header">Users</h5>
                                 <div class="card-body">
                                     <h5 class="card-title">345</h5>
                                     <p class="card-text">United States</p>
@@ -136,7 +136,10 @@
                                                     <td>johndoe@gmail.com</td>
                                                     <td>€61.11</td>
                                                     <td>Aug 31 2020</td>
-                                                    <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                                                        <a href="#" class="btn btn-sm btn-primary">Delete</a>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
