@@ -1,3 +1,7 @@
+<?php
+
+    include('include/require.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -76,7 +80,6 @@
                                 <h5 class="card-header">Users</h5>
                                 <div class="card-body">
                                     <h5 class="card-title">345</h5>
-                                    <p class="card-text">United States</p>
                                     <p class="card-text text-success">18.2% increase since last month</p>
                                 </div>
                             </div>
@@ -85,19 +88,17 @@
                             <div class="card">
                                 <h5 class="card-header">Products</h5>
                                 <div class="card-body">
-                                    <h5 class="card-title">$2.4k</h5>
-                                    <p class="card-text">China</p>
+                                    <h5 class="card-title"><?php echo CountProducts()-> num_rows; ?></h5>
                                     <p class="card-text text-success">4.6% increase since last month</p>
                                 </div>
-                            </div>
+                            </div> 
                         </div>
                         <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-3">
                             <div class="card">
                                 <h5 class="card-header">Purchases</h5>
                                 <div class="card-body">
                                     <h5 class="card-title">43</h5>
-                                    <p class="card-text">Worldwide</p>
-                                    <p class="card-text text-danger">2.6% decrease since last month</p>
+                                    <p class="card-text text-success">2.6% decrease since last month</p>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +107,6 @@
                                 <h5 class="card-header">Traffic</h5>
                                 <div class="card-body">
                                     <h5 class="card-title">64k</h5>
-                                    <p class="card-text">Worldwide</p>
                                     <p class="card-text text-success">2.5% increase since last month</p>
                                 </div>
                             </div>
@@ -122,25 +122,27 @@
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Id</th>
-                                                    <th scope="col">Product</th>
-                                                    <th scope="col">Customer</th>
-                                                    <th scope="col">Total</th>
-                                                    <th scope="col">Date</th>
+                                                    <th scope="col">Product Name</th>
+                                                    <th scope="col">Picture</th>
+                                                    <th scope="col">Price</th>
+                                                    <th scope="col">Description</th>
                                                     <th scope="col"></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php foreach($AllProducts as $product) {?>
                                                 <tr>
-                                                    <th scope="row">173</th>
-                                                    <td>Glorious Model O</td>
-                                                    <td>johndoe@gmail.com</td>
-                                                    <td>€61.11</td>
-                                                    <td>Aug 31 2020</td>
+                                                    <th scope="row"><?= $product['id']; ?></th>
+                                                    <td><?= $product['name']; ?></td>
+                                                    <td><img src="<?= $product['picture']; ?>" style="width7rem; height: 4rem" /></td>
+                                                    <td><?= $product['price'].'$'; ?></td>
+                                                    <td><?= $product['description']; ?></td>
                                                     <td>
                                                         <a href="#" class="btn btn-sm btn-primary">Edit</a>
                                                         <a href="#" class="btn btn-sm btn-primary">Delete</a>
                                                     </td>
                                                 </tr>
+                                                <?php } ?>
                                             </tbody>
                                         </table>
                                     </div>
