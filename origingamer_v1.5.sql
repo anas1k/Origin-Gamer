@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 17, 2022 at 07:47 PM
+-- Generation Time: Nov 19, 2022 at 05:46 AM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -24,46 +24,76 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `name`) VALUES
+(1, 'Mouse');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `picture` varchar(255) NOT NULL,
-  `price` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL
+  `id_category` int(11) NOT NULL,
+  `picture` text NOT NULL,
+  `price` float NOT NULL,
+  `description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `picture`, `price`, `description`) VALUES
-(1, 'Glorious model O', 'assets/img/uploads/model_O.jpg', '61', 'Gaming mouse'),
-(2, 'htstfghdw', 'assets/img/uploads/razer.jpg ', 'sgfd', 'sdfgs'),
-(3, 'fdggf', 'assets/img/uploads/rat.jpg', 'gfs', 'gsdf'),
-(4, 'fgadsf', 'assets/img/uploads/logitec.jfif', 'gsdffgs', 'grqgr');
+INSERT INTO `products` (`id`, `name`, `id_category`, `picture`, `price`, `description`) VALUES
+(1, 'Glorious model O', 1, '../assets/img/uploads/model_O.jpg', 61, 'fdgsdgsdfgs'),
+(2, 'Razer', 1, '../assets/img/uploads/razer.jpg ', 83, 'gasfdg afdgasdfdgafdg');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_category` (`id_category`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
