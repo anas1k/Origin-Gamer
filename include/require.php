@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                     
 
-                    $result = AddProduct($name, $idCategory, $fileNameNew, $price, $description);
+                    $result = AddProduct($name, $idCategory, $fileDestination, $price, $description);
                     if($result == 1){
                         move_uploaded_file($fileTmpName, $fileDestination);
                         header('Location: '. $_SERVER['PHP_SELF']); //refresh page

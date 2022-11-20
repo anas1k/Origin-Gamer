@@ -82,12 +82,12 @@
                                                         }
                                                     }
                                                 ?>
-                                                <td><img src="../assets/img/uploads/<?= $product['picture']; ?>" style="width7rem; height: 4rem" /></td>
+                                                <td><img src="<?= $product['picture']; ?>" style="width7rem; height: 4rem" /></td>
                                                 <td><?= $product['price'].'$'; ?></td>
                                                 <td><?= $product['description']; ?></td>
                                                 <td>
                                                     <a href="#" class="btn btn-sm btn-warning">Edit</a>
-                                                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                                    <a href="../include/require.php?id=<?= $product['idProduct']; ?>" class="btn btn-sm btn-danger">Delete</a>
                                                 </td>
                                             </tr>
                                             <?php } ?>

@@ -12,8 +12,10 @@ function GetProducts(){
 }
 
 function CountProducts(){
+
     $sql = "SELECT * FROM products";
     $result = connect() -> query($sql);
+
     return $result;
 }
 
@@ -26,6 +28,7 @@ function FourProducts(){
 }
 
 function AddProduct($name, $idCategorie, $picture, $price, $description){
+
     $sql = "INSERT INTO products (name, id_category, id_user, picture, price, description) VALUES ('$name', '$idCategorie', '1', '$picture', '$price', '$description')";
     $result = connect() -> query($sql);
 
@@ -33,6 +36,7 @@ function AddProduct($name, $idCategorie, $picture, $price, $description){
 }
 
 function EditProduct($id, $name, $idCategorie, $picture, $price, $description){
+
     $sql = "UPDATE products SET name = '$name', id_category = '$idCategorie', picture = '$picture', price = '$price', description = '$description' WHERE id = '$id'";
     $result = connect() -> query($sql);
 
@@ -40,10 +44,13 @@ function EditProduct($id, $name, $idCategorie, $picture, $price, $description){
 }
 
 function DeleteProduct($id){
+
     $sql = "SELECT picture FROM products WHERE id = '$id'";
-    $picture = connect() -> query($sql);
-    if ($picture != '') {
-        unlink($picture);
+    $result = connect() -> query($sql);
+    $row = mysqli_fetch_assoc($result);
+
+    if ($row['picture'] != '') {
+        unlink($row['picture']);
     }
 
     $sql = "DELETE FROM products WHERE id = '$id'";
