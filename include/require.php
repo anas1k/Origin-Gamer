@@ -15,7 +15,7 @@ $AllCategories = GetCategory();
 
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if(isset($_REQUEST['addProduct'])){
+    if(isset($_REQUEST['addProductForm'])){
         extract($_POST);
         
         if ($_FILES['picture']['name'] != "") {
@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     
         $fileExt = explode('.', $fileName);
         $fileActualExt = strtolower(end($fileExt));
-        $allowed = array('jpg', 'jpeg', 'png');
+        $allowed = array('jpg', 'jpeg', 'png' , 'jfif');
     
         if (in_array($fileActualExt, $allowed)) {
             if ($fileError === 0) {
@@ -35,10 +35,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     $fileNameNew = date("dmy") . time() ."." . $fileActualExt; //create unique name using time and date and name of 'picture'
                     $fileDestination = "../assets/img/uploads/" . $fileNameNew;
 
-                    move_uploaded_file($fileTmpName, $fileDestination);
+                    
 
                     $result = AddProduct($name, $idCategory, $fileNameNew, $price, $description);
                     if($result == 1){
+                        move_uploaded_file($fileTmpName, $fileDestination);
                         header('Location: '. $_SERVER['PHP_SELF']); //refresh page
                         die;
                     }
@@ -59,5 +60,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
         
+    }
+}
+
+if($_SERVER['REQUEST_METHOD'] == 'GET'){
+    if(isset($_REQUEST['id'])){
+        $id = $_REQUEST['id'];
+        $result = DeleteProduct($id);
+        if($result == 1){
+            header('Location: ../core/allproducts.php'); //refresh page
+            die;
+        }
     }
 }

@@ -21,9 +21,9 @@
                             <div class="d-flex justify-content-between align-items-center card-header m-2">
                                 <h5 >All Products</h5>
                                 <div class=" justify-content-end">
-                                    <a class="btn rounded-pill btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">
+                                    <a class="btn rounded-pill btn-primary px-3" data-bs-toggle="modal" data-bs-target="#productModal">
                                         <i class="fa fa-plus mr-2"></i>
-                                        Add Product
+                                        <b>Add Product</b>
                                     </a>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                                                 <td><?= $product['description']; ?></td>
                                                 <td>
                                                     <a href="#" class="btn btn-sm btn-warning">Edit</a>
-                                                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                                    <a href="../include/require.php?id=<?= $product['idProduct']; ?>" class="btn btn-sm btn-danger">Delete</a>
                                                 </td>
                                             </tr>
                                             <?php } ?>
@@ -75,18 +75,18 @@
             <div class="modal-dialog modal-dialog-centered mt-3 mb-1">
                 <div class="modal-content background text-white">
                     <div class="modal-header">
-                        <h3 class="modal-title" id="exampleModalLabel">Add Product</h3>
+                        <h3 class="" id="exampleModalLabel">Add Product</h3>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body pt-0 pb-1">
                         <form id="form" method="POST" enctype="multipart/form-data" >
                             <div class="mb-0">
-                                <label for="taskName" class="col-form-label">Name</label>
+                                <label class="col-form-label">Name</label>
                                 <input type="text" class="form-control" id="NameInput" name="name" />
                                 <div id="ValidateName"></div>
                             </div>
                             <div class="mb-0">
-                                <label for="taskCategory" class="col-form-label">Category</label>
+                                <label for="productCategory" class="col-form-label">Category</label>
                                 <select class="form-select" id="CategoryInput" name="idCategory" required>
                                     <option value selected disabled>Please select</option>
                                     <?php foreach($AllCategories as $category) {
@@ -97,25 +97,25 @@
                             </div>
                             <input style="display: none" id="IdInput" name="idInput" />
                             <div class="mb-0">
-                                <label for="taskPicture" class="col-form-label">Picture</label>
+                                <label class="col-form-label">Picture</label>
                                 <input class="form-control" type="file" required id="PictureInput" name="picture" />
                             </div>
                             <div class="mb-0">
-                                <label for="taskPrice" class="col-form-label">Price</label>
+                                <label class="col-form-label">Price</label>
                                 <input type="number" class="form-control" id="PriceInput" name="price" /> 
                                 <div id="ValidatePrice"></div>
                             </div>    
                             <div class="mb-0">
-                                <label for="taskDate" class="col-form-label">Description</label>
+                                <label class="col-form-label">Description</label>
                                 <textarea class="form-control" id="DescriptionInput" required rows="8" name="description"></textarea>
                                 <span id="ValidateDescription"></span>
                             </div>
                             <div class="modal-footer">
-                                <button type="reset" class="btn btn-outline-dark text-black" data-bs-dismiss="modal">Cancel</button>
-                                <button id="saveTask" type="submit" name="addProduct"  class="btn btn-primary">Save</button>
-                                <div id="editTask" style="display: none">
-                                    <button type="submit" id="deleteValidation" name="deleteProductFrom" class="btn btn-danger text-black">Delete</button>
-                                    <button id="updateTask" type="submit" name="updateProductForm" class="btn btn-warning text-black">Update</button>
+                                <button type="reset" class="btn btn-outline-light text-black" data-bs-dismiss="modal">Cancel</button>
+                                <button id="saveproduct" type="submit" name="addProductForm"  class="btn btn-primary">Save</button>
+                                <div id="editproduct" style="display: none">
+                                    <button type="submit" id="deleteValidation" name="deleteProductForm" class="btn btn-danger text-black">Delete</button>
+                                    <button id="updateproduct" type="submit" name="updateProductForm" class="btn btn-warning text-black">Update</button>
                                 </div>
                             </div>
                         </form>
