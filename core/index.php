@@ -56,7 +56,7 @@
                 <div class="row">
                     <div class="col-12 col-xl-12 mb-4 mb-lg-0">
                         <div class="card">
-                            <h5 class="card-header">Latest Products</h5>
+                            <h5 class="card-header">Recent Products</h5>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table text-white">
@@ -64,6 +64,7 @@
                                             <tr>
                                                 <th scope="col">Id</th>
                                                 <th scope="col">Product Name</th>
+                                                <th scope="col">Category</th>
                                                 <th scope="col">Picture</th>
                                                 <th scope="col">Price</th>
                                                 <th scope="col">Description</th>
@@ -75,12 +76,18 @@
                                             <tr>
                                                 <th scope="row"><?= $product['id']; ?></th>
                                                 <td><?= $product['name']; ?></td>
-                                                <td><img src="<?= $product['picture']; ?>" style="width7rem; height: 4rem" /></td>
+                                                <?php foreach($AllCategories as $Category){
+                                                        if($Category['id'] == $product['id_category']){
+                                                            echo "<td>".$Category['name']."</td>";
+                                                        }
+                                                    }
+                                                ?>
+                                                <td><img src="../assets/img/uploads/<?= $product['picture']; ?>" style="width7rem; height: 4rem" /></td>
                                                 <td><?= $product['price'].'$'; ?></td>
                                                 <td><?= $product['description']; ?></td>
                                                 <td>
-                                                    <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                                                    <a href="#" class="btn btn-sm btn-primary">Delete</a>
+                                                    <a href="#" class="btn btn-sm btn-warning">Edit</a>
+                                                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
                                                 </td>
                                             </tr>
                                             <?php } ?>
