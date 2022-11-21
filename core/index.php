@@ -94,7 +94,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <a href="allproducts.php" class="btn btn-block btn-dark">View all</a>
+                                <a href="allproducts.php" class="btn btn-block col-12 btn-dark">View all</a>
                             </div>
                         </div>
                     </div>

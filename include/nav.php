@@ -16,7 +16,7 @@
                 </a>
             </li>
             <li class="nav-item m-2">
-                <a class="nav-link <?= $path == "Category" ? "active" :""; ?> d-flex align-items-center" href="#">
+                <a class="nav-link <?= $path == "Category" ? "active" :""; ?> d-flex align-items-center" href="../core/allcategories.php">
                     <i class="fa fa-list text-white"></i>
                     <span class="m-4 text-white">Category</span>
                 </a>

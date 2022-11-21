@@ -36,7 +36,7 @@
                                                 <th scope="col">Product Name</th>
                                                 <th scope="col">Category</th>
                                                 <th scope="col">Picture</th>
-                                                <th scope="col">Price</th>
+                                                <th scope="col">Price $</th>
                                                 <th scope="col">Description</th>
                                                 <th scope="col"></th>
                                             </tr>
@@ -45,11 +45,11 @@
                                             <?php foreach($AllProducts as $product) {?>
                                             <tr>
                                                 <th scope="row"><?= $product['idProduct']; ?></th>
-                                                <td id="ProducttName<?= $product['idProduct']; ?>" ><?= $product['nameProduct']; ?></td>
-                                                <td class="ProductCategory<?= $product['idProduct']; ?>"><?= $product['nameCategory']; ?></td>
-                                                <td class="ProductPicture<?= $product['idProduct']; ?>"><img src="<?=$product['picture']; ?>" style="width:4rem;" /></td>
-                                                <td class="ProductPrice<?= $product['idProduct']; ?>"><?= $product['price'].'$'; ?></td>
-                                                <td class="ProductDescription<?= $product['idProduct']; ?>"><?= $product['description']; ?></td>
+                                                <td id="ProductName<?= $product['idProduct']; ?>" ><?= $product['nameProduct']; ?></td>
+                                                <td id="ProductCategory<?= $product['idProduct']; ?>"><?= $product['nameCategory']; ?></td>
+                                                <td id="ProductPicture<?= $product['idProduct']; ?>"><img src="<?=$product['picture']; ?>" style="width:4rem;" /></td>
+                                                <td id="ProductPrice<?= $product['idProduct']; ?>"><?= $product['price']; ?></td>
+                                                <td id="ProductDescription<?= $product['idProduct']; ?>"><?= $product['description']; ?></td>
                                                 <td>
                                                     <a href="#" onclick="GetProduct('<?= $product['idProduct']; ?>')" class="btn btn-sm btn-warning">Edit</a>
                                                     <!-- <a href="../include/require.php?id=<?= $product['idProduct']; ?>" class="btn btn-sm btn-danger">Delete</a> -->
@@ -124,7 +124,7 @@
             </div>
         </div>
 
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
         <!-- Github buttons -->

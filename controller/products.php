@@ -5,7 +5,7 @@ require_once('../controller/database.php');
 function GetProducts(){
     
     $sql = "SELECT p.id AS idProduct, p.name AS nameProduct, p.id_category AS idCategory, p.picture, p.price, p.description, c.name AS nameCategory 
-        FROM products p INNER JOIN category c ON p.id_category = c.id;";
+        FROM products p LEFT JOIN category c ON p.id_category = c.id;";
     $result = connect() -> query($sql);
 
     return $result;

@@ -13,7 +13,7 @@ $FourProducts = FourProducts();
 
 $AllCategories = GetCategory();
 
-
+// add product routing
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(isset($_REQUEST['addProductForm'])){
         extract($_POST);
@@ -63,12 +63,53 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 }
 
+// delete product routing
 if($_SERVER['REQUEST_METHOD'] == 'GET'){
     if(isset($_REQUEST['id'])){
         $id = $_REQUEST['id'];
         $result = DeleteProduct($id);
         if($result == 1){
             header('Location: ../core/allproducts.php'); //refresh page
+            die;
+        }
+    }
+}
+
+// add category routing
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if(isset($_REQUEST['addCategoryForm'])){
+        $name = $_REQUEST['name'];
+        $result = AddCategory($name);
+        if($result == 1){
+            header('Location: '. $_SERVER['PHP_SELF']); //refresh page
+            die;
+        }
+
+    }
+}
+
+// delete category routing
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if(isset($_REQUEST['deleteCategoryFrom'])){
+        var_dump($_REQUEST);
+        die;
+        $id = $_REQUEST['deleteCategoryFrom'];
+        $result = DeleteCategory($id);
+        if($result == 1){
+            header('Location: ../core/allcategories.php'); //refresh page
+            die;
+        }
+    }
+}
+
+// edit category routing
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if(isset($_REQUEST['editCategoryForm'])){
+        $id = $_REQUEST['id'];
+        $name = $_REQUEST['name'];
+        $result = EditCategory($id, $name);
+        if($result == 1){
+            header('Location: ../core/allcategories.php'); //refresh page
             die;
         }
     }
