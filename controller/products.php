@@ -4,7 +4,7 @@ require_once('../controller/database.php');
 
 function GetProducts(){
     
-    $sql = "SELECT p.id AS idProduct, p.name AS nameProduct, p.id_category AS idCategory, p.picture, p.price, p.description, c.name AS nameCategory, c.id AS idCategory 
+    $sql = "SELECT p.id AS idProduct, p.name AS nameProduct, p.id_category AS idCategory, p.picture, p.quantity, p.price, p.description, c.name AS nameCategory, c.id AS idCategory 
         FROM products p LEFT JOIN category c ON p.id_category = c.id;";
     $result = connect() -> query($sql);
 
@@ -38,9 +38,9 @@ function AddProduct($name, $idCategorie, $picture, $price, $description){
     return 1;
 }
 
-function EditProduct($id, $name, $idCategorie, $picture, $price, $description){
+function EditProduct($id, $name, $idCategorie, $picture, $price, $quantity, $description){
 
-    $sql = "UPDATE products SET name = '$name', id_category = '$idCategorie', id_user= '1', picture = '$picture', price = '$price', description = '$description' WHERE id = '$id'";
+    $sql = "UPDATE products SET name = '$name', id_category = '$idCategorie', id_user= '1', picture = '$picture', price = '$price', quantity = '$quantity', description = '$description' WHERE id = '$id'";
     $result = connect() -> query($sql);
 
     $_SESSION['icon'] = "warning";

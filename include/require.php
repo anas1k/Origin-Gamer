@@ -144,7 +144,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                     $fileNameNew = date("dmy") . time() ."." . $fileActualExt; //create unique name using time and date and name of 'picture'
                     $fileDestination = "../assets/img/uploads/" . $fileNameNew;
 
-                    $result = EditProduct($id, $name, $idCategory, $fileDestination, $price, $description);
+                    $result = EditProduct($id, $name, $idCategory, $fileDestination, $price, $quantity, $description);
                     if($result == 1){
                         move_uploaded_file($fileTmpName, $fileDestination);
                         header('Location: ../core/allproducts.php'); //refresh page

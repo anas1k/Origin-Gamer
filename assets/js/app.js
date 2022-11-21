@@ -35,6 +35,8 @@ function GetProduct(id, idCategory) {
 
     document.getElementById('PriceInput').value = document.querySelector(`#ProductPrice${id}`).innerText;
 
+    document.getElementById('QuantityInput').value = document.querySelector(`#ProductQuantity${id}`).innerText;
+
     document.getElementById('IdInput').value = id;
 
     let file = document.querySelector('#PictureInput');
@@ -96,7 +98,7 @@ function deleteProduct(id) {
     Swal.fire({
         background: '#1e1e2d',
         color: '#F0F6FC',
-        title: 'Are you sure you want to delete this category?',
+        title: 'Are you sure you want to delete this product?',
         text: "You won't be able to revert this!",
         icon: 'warning',
         showCancelButton: true,

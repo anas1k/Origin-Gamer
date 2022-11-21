@@ -37,6 +37,7 @@
                                                 <th scope="col">Category</th>
                                                 <th scope="col">Picture</th>
                                                 <th scope="col">Price $</th>
+                                                <th scope="col">Quantity</th>
                                                 <th scope="col">Description</th>
                                                 <th scope="col"></th>
                                             </tr>
@@ -47,8 +48,13 @@
                                                 <th scope="row"><?= $product['idProduct']; ?></th>
                                                 <td id="ProductName<?= $product['idProduct']; ?>" ><?= $product['nameProduct']; ?></td>
                                                 <td id="ProductCategory<?= $product['idProduct']; ?>"><?= $product['nameCategory']; ?></td>
-                                                <td ><img  id="ProductPicture<?= $product['idProduct']; ?>" src="<?=$product['picture']; ?>" style="width:4rem;" /></td>
+                                                <?php if(empty($product['picture'])){
+                                                    echo '<td><img src="../assets/img/uploads/frame.png" style="width:4rem;" /></td>';
+                                                }else{
+                                                    echo '<td ><img  id="ProductPicture'. $product['idProduct'].'" src="'.$product['picture'].'" style="width:4rem;" /></td>';
+                                                    } ?>
                                                 <td id="ProductPrice<?= $product['idProduct']; ?>"><?= $product['price']; ?></td>
+                                                <td id="ProductQuantity<?= $product['idProduct']; ?>"><?= $product['quantity']; ?></td>
                                                 <td id="ProductDescription<?= $product['idProduct']; ?>"><?= $product['description']; ?></td>
                                                 <td>
                                                     <a href="#" onclick="GetProduct('<?= $product['idProduct']; ?>','<?= $product['idCategory']; ?>')" class="btn btn-sm btn-warning">Edit</a>
@@ -100,8 +106,13 @@
                             </div>
                             <div class="mb-0">
                                 <label class="col-form-label">Price</label>
-                                <input type="number" class="form-control" id="PriceInput" name="price" /> 
+                                <input type="number" step=0.01 class="form-control" id="PriceInput" name="price" /> 
                                 <div id="ValidatePrice"></div>
+                            </div>    
+                            <div class="mb-0">
+                                <label class="col-form-label">Quantity</label>
+                                <input type="number" class="form-control" id="QuantityInput" name="quantity" /> 
+                                <div id="ValidateQuantity"></div>
                             </div>    
                             <div class="mb-0">
                                 <label class="col-form-label">Description</label>
