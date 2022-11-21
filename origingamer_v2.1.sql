@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 20, 2022 at 02:26 AM
+-- Generation Time: Nov 21, 2022 at 07:53 PM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -37,7 +37,10 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`) VALUES
-(1, 'Mouse');
+(1, 'Mouse'),
+(2, 'Keyboard'),
+(13, 'HeadPhones'),
+(26, 'dddss');
 
 -- --------------------------------------------------------
 
@@ -60,10 +63,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `id_category`, `id_user`, `picture`, `price`, `description`) VALUES
-(1, 'Glorious model O', 1, 0, 'model_O.jpg', 61, 'fdgsdgsdfgs'),
-(2, 'Razer', 1, 0, 'razer.jpg ', 83, 'gasfdg afdgasdfdgafdg'),
-(3, 'Neve Norris', 1, 0, 'rat.jpg', 810, 'Dolore et enim sit o'),
-(4, 'Erica Cervantes', 1, 0, '1911221668898532.jpg', 759, 'Fugit beatae vero q');
+(1, 'Glorious model O', 1, 1, '../assets/img/uploads/2111221669059726.jpg', 60, 'fdgsdgsdfgss\r\ncasc\r\ncas'),
+(2, 'Razer', 1, 0, '../assets/img/uploads/razer.jpg ', 83, 'gasfdg afdgasdfdgafdg'),
+(19, 'Zahir Gardner', 2, 1, '../assets/img/uploads/2111221669060372.jpg', 147, 'Ex voluptates cum po');
 
 -- --------------------------------------------------------
 
@@ -117,13 +119,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `users`
