@@ -26,18 +26,17 @@
                                     <form id="form" method="POST">
                                         <div class="mb-0">
                                             <label class="col-form-label">Name</label>
-                                            <input type="text" class="form-control" id="NameInput" name="name" />
-                                            <input type="text" class="form-control" id="idInput" name="id" style="display: none" />
-
+                                            <input type="text" class="form-control" id="NameInput" name="name"  required/>
+                                            <input type="hidden" class="form-control" id="idInput" name="id"  />
                                             <div id="ValidateName"></div>
                                         </div>
 
                                         <div class="mt-2 d-flex justify-content-end">
-                                            <div id="editButton" style="display: none">
-                                                <button type="submit" name="editCategoryForm" class="btn btn-warning">Modify</button>
-                                            </div>
                                             <div id="addButton" style="display: block">
                                                 <button id="saveCategory" type="submit" name="addCategoryForm"  class="btn btn-primary">Add</button>
+                                            </div>
+                                            <div id="editButton" style="display: none">
+                                                <button type="submit" name="editCategoryForm" class="btn btn-warning">Modify</button>
                                             </div>
                                         </div>
                                     </form>
@@ -80,9 +79,7 @@
                         </div>
                     </div>
                 </div>
-                <footer class="d-flex justify-content-end">
-                    <span>Copyright © 2022 BY AK</span>
-                </footer>
+                <?php include_once('../include/footer.php'); ?>
             </main>
         </div>
         

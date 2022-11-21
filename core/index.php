@@ -99,9 +99,7 @@
                         </div>
                     </div>
                 </div>
-                <footer class="d-flex justify-content-end">
-                    <span>Copyright © 2022 BY Anass KASSEMI</span>
-                </footer>
+                <?php include_once('../include/footer.php'); ?>
             </main>
         </div>
         

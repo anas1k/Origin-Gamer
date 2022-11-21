@@ -21,7 +21,7 @@
                             <div class="d-flex justify-content-between align-items-center card-header m-2">
                                 <h5 >All Products</h5>
                                 <div class=" justify-content-end">
-                                    <a class="btn rounded-pill btn-primary px-3" onclick="createProduct()">
+                                    <a class="btn rounded-pill btn-success px-3" onclick="createProduct()">
                                         <i class="fa fa-plus mr-2"></i>
                                         <b>Add Product</b>
                                     </a>
@@ -47,12 +47,12 @@
                                                 <th scope="row"><?= $product['idProduct']; ?></th>
                                                 <td id="ProductName<?= $product['idProduct']; ?>" ><?= $product['nameProduct']; ?></td>
                                                 <td id="ProductCategory<?= $product['idProduct']; ?>"><?= $product['nameCategory']; ?></td>
-                                                <td id="ProductPicture<?= $product['idProduct']; ?>"><img src="<?=$product['picture']; ?>" style="width:4rem;" /></td>
+                                                <td ><img  id="ProductPicture<?= $product['idProduct']; ?>" src="<?=$product['picture']; ?>" style="width:4rem;" /></td>
                                                 <td id="ProductPrice<?= $product['idProduct']; ?>"><?= $product['price']; ?></td>
                                                 <td id="ProductDescription<?= $product['idProduct']; ?>"><?= $product['description']; ?></td>
                                                 <td>
-                                                    <a href="#" onclick="GetProduct('<?= $product['idProduct']; ?>')" class="btn btn-sm btn-warning">Edit</a>
-                                                    <!-- <a href="../include/require.php?id=<?= $product['idProduct']; ?>" class="btn btn-sm btn-danger">Delete</a> -->
+                                                    <a href="#" onclick="GetProduct('<?= $product['idProduct']; ?>','<?= $product['idCategory']; ?>')" class="btn btn-sm btn-warning">Edit</a>
+                                                    <a href="#" onclick="deleteProduct('<?= $product['idProduct']; ?>')" class="btn btn-sm btn-danger">Delete</a>
                                                 </td>
                                             </tr>
                                             <?php } ?>
@@ -64,9 +64,7 @@
                         </div>
                     </div>
                 </div>
-                <footer class="d-flex justify-content-end">
-                    <span>Copyright © 2022 BY Anass KASSEMI</span>
-                </footer>
+                <?php include_once('../include/footer.php'); ?>
             </main>
         </div>
 
@@ -95,10 +93,10 @@
                                     
                                 </select>
                             </div>
-                            <input style="display: none" id="IdInput" name="idInput" />
+                            <input type="hidden" id="IdInput" name="id" />
                             <div class="mb-0">
                                 <label class="col-form-label">Picture</label>
-                                <input class="form-control" type="file" required id="PictureInput" name="picture" />
+                                <input id="PictureInput" class="dropify" data-height="100" data-default-file= '' type="file" required  name="picture"  />
                             </div>
                             <div class="mb-0">
                                 <label class="col-form-label">Price</label>
@@ -114,7 +112,7 @@
                                 <button type="reset" class="btn btn-outline-light text-black" data-bs-dismiss="modal">Cancel</button>
                                 <button id="saveProduct" type="submit" name="addProductForm"  class="btn btn-primary">Save</button>
                                 <div id="editProduct" style="display: none">
-                                    <button type="submit" id="deleteValidation" name="deleteProductForm" class="btn btn-danger text-black">Delete</button>
+                                    <!-- <button type="submit" id="deleteValidation" name="deleteProductForm" class="btn btn-danger text-black">Delete</button> -->
                                     <button id="updateproduct" type="submit" name="updateProductForm" class="btn btn-warning text-black">Update</button>
                                 </div>
                             </div>
