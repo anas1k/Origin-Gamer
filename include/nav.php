@@ -1,7 +1,7 @@
 <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
     
     <div class="position">
-        <a class="" href="#"><img src="../assets/img/logo/Logo.png" alt="" class="logo" /></a>
+        <a class="" href="../core"><img src="../assets/img/logo/Logo.png" alt="" class="logo" /></a>
         <ul class="nav nav-pills mt-5 flex-column">
             <li class="nav-item m-2">
                 <a class="nav-link <?= $path == "Home" ? "active" :""; ?> d-flex align-items-center" href="../core/index.php">

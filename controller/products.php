@@ -27,9 +27,9 @@ function FourProducts(){
     return $result;
 }
 
-function AddProduct($name, $idCategorie, $picture, $price, $description){
+function AddProduct($name, $idCategorie, $picture, $price, $quantity, $description){
 
-    $sql = "INSERT INTO products (name, id_category, id_user, picture, price, description) VALUES ('$name', '$idCategorie', '1', '$picture', '$price', '$description')";
+    $sql = "INSERT INTO products (name, id_category, id_user, picture, price, quantity, description) VALUES ('$name', '$idCategorie', '1', '$picture', '$price', '$quantity', '$description')";
     $result = connect() -> query($sql);
 
     $_SESSION['icon'] = "success";
@@ -65,3 +65,10 @@ function DeleteProduct($id){
     return 1;
 }
 
+function TotalQuantity(){
+    
+        $sql = "SELECT SUM(quantity) AS total FROM products";
+        $result = connect() -> query($sql);
+
+        return $result;
+}

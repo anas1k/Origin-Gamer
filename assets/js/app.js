@@ -3,6 +3,58 @@
  *
  */
 
+// declaring validation inputs and spans
+let Title = document.getElementById('NameInput'),
+    Description = document.getElementById('DescriptionInput'),
+    TitleSpan = document.getElementById('ValidateName'),
+    DescriptionSpan = document.getElementById('ValidateDescription');
+
+// event listener for saveValidation
+$('#saveProduct').on('click', function (e) {
+    if (Title.value == '' || !/^[a-z A-Z]{5,}$/.test(Title.value)) {
+        e.preventDefault();
+
+        Description.setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
+        DescriptionSpan.innerText = '';
+
+        Title.setAttribute('style', 'color:red; border: 1px red solid ;');
+        TitleSpan.innerText = 'Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres et sans caractéres speciaux!!';
+        TitleSpan.setAttribute('style', 'color:red;font-size:10px;');
+    } else if (Description.value == '' || !/^[a-z A-Z.:,]{5,}$/.test(Description.value)) {
+        ee.preventDefault();
+
+        Title.setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
+        TitleSpan.innerText = '';
+
+        Description.setAttribute('style', 'color:red; border: 1px red solid ;');
+        DescriptionSpan.innerText = 'Veuillez entrer une description valide ! verifiez que la description contient au minimum 5 caractéres!!';
+        DescriptionSpan.setAttribute('style', 'color:red;font-size:10px;');
+    }
+});
+
+// event listener for updateValidation
+$('#updateProduct').on('click', function (ee) {
+    if (Title.value == '' || !/^[a-z A-Z]{5,}$/.test(Title.value)) {
+        ee.preventDefault();
+
+        Description.setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
+        DescriptionSpan.innerText = '';
+
+        Title.setAttribute('style', 'color:red; border: 1px red solid ;');
+        TitleSpan.innerText = 'Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres et sans caractéres speciaux!!';
+        TitleSpan.setAttribute('style', 'color:red;font-size:10px;');
+    } else if (Description.value == '' || !/^[a-z A-Z.:,/]{5,}$/.test(Description.value)) {
+        ee.preventDefault();
+
+        Title.setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
+        TitleSpan.innerText = '';
+
+        Description.setAttribute('style', 'color:red; border: 1px red solid ;');
+        DescriptionSpan.innerText = 'Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres!!';
+        DescriptionSpan.setAttribute('style', 'color:red;font-size:10px;');
+    }
+});
+
 function createProduct() {
     // initialiser Product form
     document.getElementById('form').reset();
@@ -44,7 +96,6 @@ function GetProduct(id, idCategory) {
     let picTitle = pic.getAttribute('src');
     console.log(picTitle);
     file.setAttribute('data-default-file', picTitle);
-    $('.dropify').dropify();
 }
 
 function GetCategory(id) {

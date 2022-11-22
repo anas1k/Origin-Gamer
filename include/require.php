@@ -6,13 +6,27 @@ include('../controller/products.php');
 include('../controller/category.php');
 include('../controller/users.php');
 
-$AllProducts = GetProducts();
 
-$ProductsCount = CountProducts();
+$AllProducts = GetProducts();
 
 $FourProducts = FourProducts();
 
 $AllCategories = GetCategory();
+
+$ProductsCount = CountProducts() -> num_rows;
+
+$UsersCount = GetUsers() -> num_rows;
+
+
+$res = TotalQuantity() -> fetch_assoc();
+$QuantityCount = $res['total'];
+
+
+$StockNet = 0;
+foreach($AllProducts as $product){
+    $StockNet += (float)$product['price'] * (float)$product['quantity'];
+}
+
 
 // add product routing
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -38,7 +52,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                     
 
-                    $result = AddProduct($name, $idCategory, $fileDestination, $price, $description);
+                    $result = AddProduct($name, $idCategory, $fileDestination, $price, $quantity, $description);
                     if($result == 1){
                         move_uploaded_file($fileTmpName, $fileDestination);
                         header('Location: '. $_SERVER['PHP_SELF']); //refresh page

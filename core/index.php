@@ -20,7 +20,7 @@
                         <div class="card">
                             <h5 class="card-header">Users</h5>
                             <div class="card-body">
-                                <h5 class="card-title text-center"><?= GetUsers() -> num_rows; ?></h5>
+                                <h5 class="card-title text-center"><?= $UsersCount ?></h5>
                                 <p class="card-text text-success"></p>
                             </div>
                         </div>
@@ -29,7 +29,7 @@
                         <div class="card">
                             <h5 class="card-header">Products</h5>
                             <div class="card-body">
-                                <h5 class="card-title text-center"><?= CountProducts() -> num_rows; ?></h5>
+                                <h5 class="card-title text-center"><?= $ProductsCount; ?></h5>
                                 <p class="card-text text-success"></p>
                             </div>
                         </div> 
@@ -38,7 +38,7 @@
                         <div class="card">
                             <h5 class="card-header">Stock Quantity</h5>
                             <div class="card-body">
-                                <h5 class="card-title text-center">43</h5>
+                                <h5 class="card-title text-center"><?= $QuantityCount;?></h5>
                                 <p class="card-text text-success"></p>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                         <div class="card">
                             <h5 class="card-header">Stock Worth</h5>
                             <div class="card-body">
-                                <h5 class="card-title text-center">64k</h5>
+                                <h5 class="card-title text-center"><?= $StockNet.' USD$';?></h5>
                                 <p class="card-text text-success"></p>
                             </div>
                         </div>

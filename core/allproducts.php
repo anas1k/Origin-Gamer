@@ -48,10 +48,10 @@
                                                 <th scope="row"><?= $product['idProduct']; ?></th>
                                                 <td id="ProductName<?= $product['idProduct']; ?>" ><?= $product['nameProduct']; ?></td>
                                                 <td id="ProductCategory<?= $product['idProduct']; ?>"><?= $product['nameCategory']; ?></td>
-                                                <?php if(empty($product['picture'])){
-                                                    echo '<td><img src="../assets/img/uploads/frame.png" style="width:4rem;" /></td>';
-                                                }else{
+                                                <?php if(!empty($product['picture'])){
                                                     echo '<td ><img  id="ProductPicture'. $product['idProduct'].'" src="'.$product['picture'].'" style="width:4rem;" /></td>';
+                                                }else{
+                                                    echo '<td><img src="../assets/img/logo/frame.png" style="width:4rem;" /></td>';
                                                     } ?>
                                                 <td id="ProductPrice<?= $product['idProduct']; ?>"><?= $product['price']; ?></td>
                                                 <td id="ProductQuantity<?= $product['idProduct']; ?>"><?= $product['quantity']; ?></td>
@@ -102,7 +102,9 @@
                             <input type="hidden" id="IdInput" name="id" />
                             <div class="mb-0">
                                 <label class="col-form-label">Picture</label>
-                                <input id="PictureInput" class="dropify" data-height="100" data-default-file= '' type="file" required  name="picture"  />
+                                <div id="PictureFileField">
+                                    <input id="PictureInput" class="dropify" data-height="100" type="file" required  name="picture"  />
+                                </div>
                             </div>
                             <div class="mb-0">
                                 <label class="col-form-label">Price $(USD)</label>
