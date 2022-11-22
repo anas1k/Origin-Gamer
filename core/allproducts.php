@@ -44,7 +44,7 @@
                                         </thead>
                                         <tbody>
                                             <?php foreach($AllProducts as $product) {?>
-                                            <tr>
+                                            <tr id="Product<?= $product['idProduct']; ?>" >
                                                 <th scope="row"><?= $product['idProduct']; ?></th>
                                                 <td id="ProductName<?= $product['idProduct']; ?>" ><?= $product['nameProduct']; ?></td>
                                                 <td id="ProductCategory<?= $product['idProduct']; ?>"><?= $product['nameCategory']; ?></td>
@@ -58,7 +58,7 @@
                                                 <td id="ProductDescription<?= $product['idProduct']; ?>"><?= $product['description']; ?></td>
                                                 <td>
                                                     <a href="#" onclick="GetProduct('<?= $product['idProduct']; ?>','<?= $product['idCategory']; ?>')" class="btn btn-sm btn-warning">Edit</a>
-                                                    <a href="#" onclick="deleteProduct('<?= $product['idProduct']; ?>')" class="btn btn-sm btn-danger">Delete</a>
+                                                    <a href="#" onclick="deleteProduct(this,'<?= $product['idProduct']; ?>')" class="btn btn-sm btn-danger">Delete</a>
                                                 </td>
                                             </tr>
                                             <?php } ?>

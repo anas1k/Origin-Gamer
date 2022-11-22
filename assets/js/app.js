@@ -10,7 +10,7 @@ let Title = document.getElementById('NameInput'),
     DescriptionSpan = document.getElementById('ValidateDescription');
 
 // event listener for saveValidation
-$('.#saveProduct').click(function (e) {
+$('#saveProduct').click(function (e) {
     if (Title.innerTEXT == '' || !/^[a-z A-Z]{5,}$/.test(Title.innerTEXT)) {
         e.preventDefault();
 
@@ -125,25 +125,23 @@ function deleteCategory(id) {
         // after confirmation is succesfull
 
         if (result.isConfirmed) {
-            Swal.fire({ background: '#1e1e2d', color: '#F0F6FC', title: 'Deleted!', text: 'Your category has been deleted, redirecting to category page. ', icon: 'error' });
-            // using ajax to send data withut refresh
-            setTimeout(function () {
-                $.ajax({
-                    url: '../include/require.php',
-                    type: 'POST',
-                    data: { deleteCategoryForm: id },
-                    dataType: 'html',
-                    success: function () {
-                        // refresh page
-                        location.reload();
-                    },
-                });
-            }, 2000);
+            Swal.fire({ background: '#1e1e2d', color: '#F0F6FC', title: 'Deleted!', text: 'Your category has been deleted successfully. ', icon: 'error' });
+            // using ajax to send data without refresh
+            $.ajax({
+                url: '../include/require.php',
+                type: 'POST',
+                data: { deleteCategoryForm: id },
+                dataType: 'html',
+                success: function () {
+                    // removing element from dom
+                    document.querySelector(`#Category${id}`).remove();
+                },
+            });
         }
     });
 }
 
-function deleteProduct(id) {
+function deleteProduct(element, id) {
     // Delete action confirmation using SweetAlert2 combined with Ajax
     // SweetAlert2 pop up
     Swal.fire({
@@ -159,20 +157,18 @@ function deleteProduct(id) {
     }).then((result) => {
         // after confirmation is succesfull
         if (result.isConfirmed) {
-            Swal.fire({ background: '#1e1e2d', color: '#F0F6FC', title: 'Deleted!', text: 'Your product has been deleted, redirecting to products page. ', icon: 'error' });
-            // using ajax to send data withut refresh
-            setTimeout(function () {
-                $.ajax({
-                    url: '../include/require.php',
-                    type: 'POST',
-                    data: { deleteProductForm: id },
-                    dataType: 'html',
-                    success: function () {
-                        // refresh page
-                        location.reload();
-                    },
-                });
-            }, 1500);
+            Swal.fire({ background: '#1e1e2d', color: '#F0F6FC', title: 'Deleted!', text: 'Your product has been deleted successfully. ', icon: 'error' });
+            // using ajax to send data without refresh
+            $.ajax({
+                url: '../include/require.php',
+                type: 'POST',
+                data: { deleteProductForm: id },
+                dataType: 'html',
+                success: function () {
+                    // removing element from dom
+                    document.querySelector(`#Product${id}`).remove();
+                },
+            });
         }
     });
 }

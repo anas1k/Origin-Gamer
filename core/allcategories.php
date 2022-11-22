@@ -62,7 +62,7 @@
                                         </thead>
                                         <tbody>
                                             <?php foreach($AllCategories as $Category) {?>
-                                            <tr>
+                                            <tr id="Category<?= $Category['id']; ?>">
                                                 <th scope="row"><?= $Category['id']; ?></th>
                                                 <td id="CategoryName<?= $Category['id']; ?>" ><?= $Category['name']; ?></td>
                                                 <td>
