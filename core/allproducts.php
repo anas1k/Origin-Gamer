@@ -36,7 +36,7 @@
                                                 <th scope="col">Product Name</th>
                                                 <th scope="col">Category</th>
                                                 <th scope="col">Picture</th>
-                                                <th scope="col">Price $</th>
+                                                <th scope="col">Price $(USD)</th>
                                                 <th scope="col">Quantity</th>
                                                 <th scope="col">Description</th>
                                                 <th scope="col"></th>
@@ -105,13 +105,13 @@
                                 <input id="PictureInput" class="dropify" data-height="100" data-default-file= '' type="file" required  name="picture"  />
                             </div>
                             <div class="mb-0">
-                                <label class="col-form-label">Price</label>
+                                <label class="col-form-label">Price $(USD)</label>
                                 <input type="number" step=0.01 class="form-control" id="PriceInput" name="price" /> 
                                 <div id="ValidatePrice"></div>
                             </div>    
                             <div class="mb-0">
                                 <label class="col-form-label">Quantity</label>
-                                <input type="number" class="form-control" id="QuantityInput" name="quantity" /> 
+                                <input type="number" class="form-control" id="QuantityInput" name="quantity" />
                                 <div id="ValidateQuantity"></div>
                             </div>    
                             <div class="mb-0">

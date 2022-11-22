@@ -4,6 +4,7 @@ session_start();
 
 include('../controller/products.php');
 include('../controller/category.php');
+include('../controller/users.php');
 
 $AllProducts = GetProducts();
 

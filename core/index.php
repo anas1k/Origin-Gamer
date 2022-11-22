@@ -20,8 +20,8 @@
                         <div class="card">
                             <h5 class="card-header">Users</h5>
                             <div class="card-body">
-                                <h5 class="card-title">345</h5>
-                                <p class="card-text text-success">18.2% increase since last month</p>
+                                <h5 class="card-title text-center"><?= GetUsers() -> num_rows; ?></h5>
+                                <p class="card-text text-success"></p>
                             </div>
                         </div>
                     </div>
@@ -29,26 +29,26 @@
                         <div class="card">
                             <h5 class="card-header">Products</h5>
                             <div class="card-body">
-                                <h5 class="card-title"><?= CountProducts() -> num_rows; ?></h5>
-                                <p class="card-text text-success">4.6% increase since last month</p>
+                                <h5 class="card-title text-center"><?= CountProducts() -> num_rows; ?></h5>
+                                <p class="card-text text-success"></p>
                             </div>
                         </div> 
                     </div>
                     <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-3">
                         <div class="card">
-                            <h5 class="card-header">Purchases</h5>
+                            <h5 class="card-header">Stock Quantity</h5>
                             <div class="card-body">
-                                <h5 class="card-title">43</h5>
-                                <p class="card-text text-success">2.6% decrease since last month</p>
+                                <h5 class="card-title text-center">43</h5>
+                                <p class="card-text text-success"></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-3">
                         <div class="card">
-                            <h5 class="card-header">Traffic</h5>
+                            <h5 class="card-header">Stock Worth</h5>
                             <div class="card-body">
-                                <h5 class="card-title">64k</h5>
-                                <p class="card-text text-success">2.5% increase since last month</p>
+                                <h5 class="card-title text-center">64k</h5>
+                                <p class="card-text text-success"></p>
                             </div>
                         </div>
                     </div>
@@ -67,8 +67,8 @@
                                                 <th scope="col">Category</th>
                                                 <th scope="col">Picture</th>
                                                 <th scope="col">Price</th>
+                                                <th scope="col">Quantity</th>
                                                 <th scope="col">Description</th>
-                                                <th scope="col"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -84,11 +84,8 @@
                                                 ?>
                                                 <td><img src="<?= $product['picture']; ?>" style="width7rem; height: 4rem" /></td>
                                                 <td><?= $product['price'].'$'; ?></td>
+                                                <td><?= $product['quantity']; ?></td>
                                                 <td><?= $product['description']; ?></td>
-                                                <td>
-                                                    <a href="#" class="btn btn-sm btn-warning">Edit</a>
-                                                    <a href="../include/require.php?id=<?= $product['idProduct']; ?>" class="btn btn-sm btn-danger">Delete</a>
-                                                </td>
                                             </tr>
                                             <?php } ?>
                                         </tbody>

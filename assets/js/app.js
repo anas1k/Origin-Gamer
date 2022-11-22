@@ -87,7 +87,7 @@ function deleteCategory(id) {
                         location.reload();
                     },
                 });
-            }, 3000);
+            }, 2500);
         }
     });
 }
