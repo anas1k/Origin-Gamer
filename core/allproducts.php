@@ -49,7 +49,7 @@
                                                 <td id="ProductName<?= $product['idProduct']; ?>" ><?= $product['nameProduct']; ?></td>
                                                 <td id="ProductCategory<?= $product['idProduct']; ?>"><?= $product['nameCategory']; ?></td>
                                                 <?php if(!empty($product['picture'])){
-                                                    echo '<td ><img  id="ProductPicture'. $product['idProduct'].'" src="'.$product['picture'].'" style="width:4rem;" /></td>';
+                                                    echo '<td><img  id="ProductPicture'. $product['idProduct'].'" src="'.$product['picture'].'" style="width:4rem;" /></td>';
                                                 }else{
                                                     echo '<td><img src="../assets/img/logo/frame.png" style="width:4rem;" /></td>';
                                                     } ?>
@@ -65,7 +65,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <a href="" class="btn btn-block btn-dark">View all</a>
+                                <!-- <a href="" class="btn btn-block btn-dark">View all</a> -->
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                             <div class="mb-0">
                                 <label class="col-form-label">Picture</label>
                                 <div id="PictureFileField">
-                                    <input id="PictureInput" class="dropify" data-height="100" type="file" required  name="picture"  />
+                                    <input id="PictureInput" class="dropify" data-default-file="../assets/img/uploads/2211221669108645.jpg" data-height="100" type="file" required  name="picture"  />
                                 </div>
                             </div>
                             <div class="mb-0">
@@ -126,7 +126,7 @@
                                 <button id="saveProduct" type="submit" name="addProductForm"  class="btn btn-primary">Save</button>
                                 <div id="editProduct" style="display: none">
                                     <!-- <button type="submit" id="deleteValidation" name="deleteProductForm" class="btn btn-danger text-black">Delete</button> -->
-                                    <button id="updateproduct" type="submit" name="updateProductForm" class="btn btn-warning text-black">Update</button>
+                                    <button id="updateProduct" type="submit" name="updateProductForm" class="btn btn-warning text-black">Update</button>
                                 </div>
                             </div>
                         </form>

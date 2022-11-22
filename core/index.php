@@ -14,7 +14,7 @@
             <main class="content col-md-9 ml-sm-auto col-lg-10 px-md-4 p-4 text-white">
                 <nav aria-label="breadcrumb"></nav>
                 <h1 class="h2"><?= $path ?></h1>
-                <p>This is the homepage of a simple admin interface</p>
+                <p>This is the home page of Origin Gamer dashboard</p>
                 <div class="row my-4">
                     <div class="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
                         <div class="card">

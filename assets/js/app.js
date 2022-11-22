@@ -10,8 +10,8 @@ let Title = document.getElementById('NameInput'),
     DescriptionSpan = document.getElementById('ValidateDescription');
 
 // event listener for saveValidation
-$('#saveProduct').on('click', function (e) {
-    if (Title.value == '' || !/^[a-z A-Z]{5,}$/.test(Title.value)) {
+$('.#saveProduct').click(function (e) {
+    if (Title.innerTEXT == '' || !/^[a-z A-Z]{5,}$/.test(Title.innerTEXT)) {
         e.preventDefault();
 
         Description.setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
@@ -62,7 +62,6 @@ function createProduct() {
     // Afficher le boutton save
     document.getElementById('saveProduct').style.display = 'block';
     document.getElementById('editProduct').style.display = 'none';
-    // add class list
 
     // Ouvrir modal form
     $('#productModal').modal('show');
@@ -95,6 +94,7 @@ function GetProduct(id, idCategory) {
     let pic = document.querySelector(`#ProductPicture${id}`);
     let picTitle = pic.getAttribute('src');
     console.log(picTitle);
+    /* file.innerHTML = `<img type="file" id="PictureInput" class="dropify" data-default-file="${picTitle}" data-height="100" required  name="picture">`; */
     file.setAttribute('data-default-file', picTitle);
 }
 
@@ -138,7 +138,7 @@ function deleteCategory(id) {
                         location.reload();
                     },
                 });
-            }, 2500);
+            }, 2000);
         }
     });
 }
@@ -172,7 +172,7 @@ function deleteProduct(id) {
                         location.reload();
                     },
                 });
-            }, 3000);
+            }, 1500);
         }
     });
 }

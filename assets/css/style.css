@@ -18,7 +18,7 @@
 }
 .logo {
     width: 12em;
-    height: 7em;
+    height: 8em;
     margin-left: 3em;
 }
 .active {
@@ -48,9 +48,15 @@
 .container-fluid {
     display: block;
 }
-
+.fullheight {
+    height: 100vh !important;
+}
 .dropify {
     border-radius: 3em !important;
+}
+
+.image-background {
+    background-color: #4059a0 !important;
 }
 
 input,
@@ -101,10 +107,10 @@ textarea {
 
 @media (max-width: 1440.98px) {
     .position {
-        margin: 1em !important;
+        margin: 2em !important;
     }
     .logo {
-        margin-left: -1em !important;
+        margin-left: 0em !important;
     }
 }
 @media (max-width: 1660.98px) {
