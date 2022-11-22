@@ -37,8 +37,6 @@ function DeleteCategory($id){
     $sql = "DELETE FROM category WHERE id = '$id'";
     $result = connect() -> query($sql);
 
-    $_SESSION['icon'] = "error";
-    $_SESSION['message'] = "Category supprimé avec succès";
 
     return 1;
 }

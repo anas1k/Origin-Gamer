@@ -20,3 +20,18 @@ function AddUser($name, $email, $password, $role){
 
     return 1;
 }
+
+function CheckUser($email,$password){
+    
+    $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+    $result = connect() -> query($sql);
+    $row = $result -> fetch_assoc();
+    if(!isset($row['email'])){
+        $_SESSION['icon'] = "error";
+        $_SESSION['message'] = "Email ou mot de passe incorrect";
+        header('Location: ../core/login.php'); //refresh page
+        die;
+    }else{
+        return $row;
+    }   
+}

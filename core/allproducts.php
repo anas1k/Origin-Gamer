@@ -58,7 +58,7 @@
                                                 <td id="ProductDescription<?= $product['idProduct']; ?>"><?= $product['description']; ?></td>
                                                 <td>
                                                     <a href="#" onclick="GetProduct('<?= $product['idProduct']; ?>','<?= $product['idCategory']; ?>')" class="btn btn-sm btn-warning">Edit</a>
-                                                    <a href="#" onclick="deleteProduct(this,'<?= $product['idProduct']; ?>')" class="btn btn-sm btn-danger">Delete</a>
+                                                    <a href="#" onclick="DeleteProduct('<?= $product['idProduct']; ?>')" class="btn btn-sm btn-danger">Delete</a>
                                                 </td>
                                             </tr>
                                             <?php } ?>
@@ -70,9 +70,7 @@
                         </div>
                     </div>
                 </div>
-                <?php include_once('../include/footer.php'); ?>
-            </main>
-        </div>
+                
 
         <!-- PRODUCT MODAL -->
         <div class="modal fade " id="productModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -102,8 +100,9 @@
                             <input type="hidden" id="IdInput" name="id" />
                             <div class="mb-0">
                                 <label class="col-form-label">Picture</label>
-                                <div id="PictureFileField">
-                                    <input id="PictureInput" class="dropify" data-default-file="../assets/img/uploads/2211221669108645.jpg" data-height="100" type="file" required  name="picture"  />
+                                <div id="">
+                                    <input id="PictureInput" class="dropify" data-default-file="" data-height="100" type="file"  name="picture"  />
+                                    <div id="ValidatePicture"></div>
                                 </div>
                             </div>
                             <div class="mb-0">
@@ -118,12 +117,12 @@
                             </div>    
                             <div class="mb-0">
                                 <label class="col-form-label">Description</label>
-                                <textarea class="form-control" id="DescriptionInput" required rows="8" name="description"></textarea>
+                                <textarea class="form-control" id="DescriptionInput" rows="8" name="description"></textarea>
                                 <span id="ValidateDescription"></span>
                             </div>
                             <div class="modal-footer">
                                 <button type="reset" class="btn btn-outline-light text-black" data-bs-dismiss="modal">Cancel</button>
-                                <button id="saveProduct" type="submit" name="addProductForm"  class="btn btn-primary">Save</button>
+                                <button id="saveProduct" type="submit" name="addProductForm" class="btn btn-primary">Save</button>
                                 <div id="editProduct" style="display: none">
                                     <!-- <button type="submit" id="deleteValidation" name="deleteProductForm" class="btn btn-danger text-black">Delete</button> -->
                                     <button id="updateProduct" type="submit" name="updateProductForm" class="btn btn-warning text-black">Update</button>
@@ -134,7 +133,9 @@
                 </div>
             </div>
         </div>
-
+            <?php include_once('../include/footer.php'); ?>
+            </main>
+        </div>
     
     </body>
 </html>

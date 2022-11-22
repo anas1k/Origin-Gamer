@@ -1,9 +1,9 @@
 <footer class="d-flex justify-content-end">
     <span>Copyright © 2022 BY AK</span>
 </footer>
-
+<script src="../assets/js/app.js"></script>
 <script>
-           
+
     <?php if (isset($_SESSION['message'])) { 
         ?>
         const Toast = Swal.mixin({
@@ -13,7 +13,7 @@
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
-            timer: 1500,
+            timer: 2500,
             timerProgressBar: false,
             didOpen: (toast) => {
                 toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -38,7 +38,7 @@
         // Basic
         $('.dropify').dropify({
             tpl: {
-                wrap: '<div class="dropify-wrapper" style=" border-radius: 1em !important;background-color: #151521 !important; padding-left:1em;"></div>',
+                wrap: '<div id="PictureFileField" class="dropify-wrapper" style=" border-radius: 1em !important;background-color: #151521 !important;"></div>',
             },
             messages: {
                 default: '<h6>Drag picture here</h6>',

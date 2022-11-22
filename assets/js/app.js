@@ -4,54 +4,66 @@
  */
 
 // declaring validation inputs and spans
-let Title = document.getElementById('NameInput'),
+var Title = document.getElementById('NameInput'),
     Description = document.getElementById('DescriptionInput'),
     TitleSpan = document.getElementById('ValidateName'),
     DescriptionSpan = document.getElementById('ValidateDescription');
 
 // event listener for saveValidation
 $('#saveProduct').click(function (e) {
-    if (Title.innerTEXT == '' || !/^[a-z A-Z]{5,}$/.test(Title.innerTEXT)) {
+    if (document.getElementById('NameInput').value == '' || !/^[a-z A-Z]{5,}$/.test(document.getElementById('NameInput').value)) {
         e.preventDefault();
 
-        Description.setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
-        DescriptionSpan.innerText = '';
+        document.getElementById('DescriptionInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
+        document.getElementById('ValidateDescription').innerText = '';
 
-        Title.setAttribute('style', 'color:red; border: 1px red solid ;');
-        TitleSpan.innerText = 'Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres et sans caractéres speciaux!!';
-        TitleSpan.setAttribute('style', 'color:red;font-size:10px;');
-    } else if (Description.value == '' || !/^[a-z A-Z.:,]{5,}$/.test(Description.value)) {
-        ee.preventDefault();
+        document.getElementById('NameInput').setAttribute('style', 'color:red; border: 1px red solid ;');
+        document.getElementById('ValidateName').innerText = 'Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres et sans caractéres speciaux!!';
+        document.getElementById('ValidateName').setAttribute('style', 'color:red;font-size:10px;');
+    } else if (document.getElementById('DescriptionInput').value == '' || !/^[a-z A-Z.:,]{5,}$/.test(document.getElementById('DescriptionInput').value)) {
+        e.preventDefault();
 
-        Title.setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
-        TitleSpan.innerText = '';
+        document.getElementById('NameInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
+        document.getElementById('ValidateName').innerText = '';
 
-        Description.setAttribute('style', 'color:red; border: 1px red solid ;');
-        DescriptionSpan.innerText = 'Veuillez entrer une description valide ! verifiez que la description contient au minimum 5 caractéres!!';
-        DescriptionSpan.setAttribute('style', 'color:red;font-size:10px;');
+        document.getElementById('DescriptionInput').setAttribute('style', 'color:red; border: 1px red solid ;');
+        document.getElementById('ValidateDescription').innerText = 'Veuillez entrer une description valide ! verifiez que la description contient au minimum 5 caractéres!!';
+        document.getElementById('ValidateDescription').setAttribute('style', 'color:red;font-size:10px;');
+    } else if (document.getElementById('PictureFileField').classList.contains('has-preview') == false) {
+        e.preventDefault();
+
+        document.getElementById('NameInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
+        document.getElementById('ValidateName').innerText = '';
+
+        document.getElementById('DescriptionInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
+        document.getElementById('ValidateDescription').innerText = '';
+
+        /* document.getElementById('DescriptionInput').setAttribute('style', 'color:red; border: 1px red solid ;'); */
+        document.getElementById('ValidatePicture').innerText = 'Veuillez entrer une description valide ! verifiez que la description contient au minimum 5 caractéres!!';
+        document.getElementById('PictureFileField').setAttribute('style', ' border-radius: 1em !important;background-color: #151521 !important;border-color:red;font-size:10px;');
     }
 });
 
 // event listener for updateValidation
-$('#updateProduct').on('click', function (ee) {
-    if (Title.value == '' || !/^[a-z A-Z]{5,}$/.test(Title.value)) {
+$('#updateProduct').click(function (ee) {
+    if (document.getElementById('NameInput').value == '' || !/^[a-z A-Z]{5,}$/.test(document.getElementById('NameInput').value)) {
         ee.preventDefault();
 
-        Description.setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
-        DescriptionSpan.innerText = '';
+        document.getElementById('DescriptionInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
+        document.getElementById('ValidateDescription').innerText = '';
 
-        Title.setAttribute('style', 'color:red; border: 1px red solid ;');
-        TitleSpan.innerText = 'Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres et sans caractéres speciaux!!';
-        TitleSpan.setAttribute('style', 'color:red;font-size:10px;');
-    } else if (Description.value == '' || !/^[a-z A-Z.:,/]{5,}$/.test(Description.value)) {
+        document.getElementById('NameInput').setAttribute('style', 'color:red; border: 1px red solid ;');
+        document.getElementById('ValidateName').innerText = 'Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres et sans caractéres speciaux!!';
+        document.getElementById('ValidateName').setAttribute('style', 'color:red;font-size:10px;');
+    } else if (document.getElementById('DescriptionInput').value == '' || !/^[a-z A-Z.:,/]{5,}$/.test(document.getElementById('DescriptionInput').value)) {
         ee.preventDefault();
 
-        Title.setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
-        TitleSpan.innerText = '';
+        document.getElementById('NameInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
+        document.getElementById('ValidateName').innerText = '';
 
-        Description.setAttribute('style', 'color:red; border: 1px red solid ;');
-        DescriptionSpan.innerText = 'Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres!!';
-        DescriptionSpan.setAttribute('style', 'color:red;font-size:10px;');
+        document.getElementById('DescriptionInput').setAttribute('style', 'color:red; border: 1px red solid ;');
+        document.getElementById('ValidateDescription').innerText = 'Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres!!';
+        document.getElementById('ValidateDescription').setAttribute('style', 'color:red;font-size:10px;');
     }
 });
 
@@ -65,6 +77,12 @@ function createProduct() {
 
     // Ouvrir modal form
     $('#productModal').modal('show');
+
+    document.getElementById('DescriptionInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
+    document.getElementById('ValidateDescription').innerText = '';
+
+    document.getElementById('NameInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
+    document.getElementById('ValidateName').innerText = '';
 }
 
 function GetProduct(id, idCategory) {
@@ -76,6 +94,13 @@ function GetProduct(id, idCategory) {
 
     // Initialisez Product form
     $('#productModal').modal('show');
+
+    document.getElementById('DescriptionInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
+    document.getElementById('ValidateDescription').innerText = '';
+
+    document.getElementById('NameInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
+    document.getElementById('ValidateName').innerText = '';
+
     console.log(id);
 
     document.getElementById('NameInput').value = document.querySelector(`#ProductName${id}`).innerText;
@@ -90,12 +115,12 @@ function GetProduct(id, idCategory) {
 
     document.getElementById('IdInput').value = id;
 
-    let file = document.querySelector('#PictureInput');
-    let pic = document.querySelector(`#ProductPicture${id}`);
-    let picTitle = pic.getAttribute('src');
+    let picTitle = document.querySelector(`#ProductPicture${id}`).getAttribute('src');
     console.log(picTitle);
-    /* file.innerHTML = `<img type="file" id="PictureInput" class="dropify" data-default-file="${picTitle}" data-height="100" required  name="picture">`; */
-    file.setAttribute('data-default-file', picTitle);
+    /* document.querySelector('#PictureFileField').innerHTML = `<img type="file" id="PictureInput" class="dropify" data-default-file="${document
+        .querySelector(`#ProductPicture${id}`)
+        .getAttribute('src')}" data-height="100" required  name="picture">`; */
+    document.querySelector('#PictureInput').setAttribute('data-default-file', picTitle);
 }
 
 function GetCategory(id) {
@@ -141,7 +166,7 @@ function deleteCategory(id) {
     });
 }
 
-function deleteProduct(element, id) {
+function DeleteProduct(id) {
     // Delete action confirmation using SweetAlert2 combined with Ajax
     // SweetAlert2 pop up
     Swal.fire({

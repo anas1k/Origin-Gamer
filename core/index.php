@@ -82,7 +82,11 @@
                                                         }
                                                     }
                                                 ?>
-                                                <td><img src="<?= $product['picture']; ?>" style="width7rem; height: 4rem" /></td>
+                                                <?php if(!empty($product['picture'])){
+                                                    echo '<td><img src="'.$product['picture'].'" style="width:4rem;" /></td>';
+                                                }else{
+                                                    echo '<td><img src="../assets/img/logo/frame.png" style="width:4rem;" /></td>';
+                                                    } ?>
                                                 <td><?= $product['price'].'$'; ?></td>
                                                 <td><?= $product['quantity']; ?></td>
                                                 <td><?= $product['description']; ?></td>
