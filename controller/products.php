@@ -5,7 +5,7 @@ require_once('../controller/database.php');
 function GetProducts(){
     
     $sql = "SELECT p.id AS idProduct, p.name AS nameProduct, p.id_category AS idCategory, p.picture, p.quantity, p.price, p.description, c.name AS nameCategory, c.id AS idCategory 
-        FROM products p LEFT JOIN category c ON p.id_category = c.id;";
+        FROM products p LEFT JOIN category c ON p.id_category = c.id ORDER BY p.id DESC;";
     $result = connect() -> query($sql);
 
     return $result;
@@ -71,4 +71,15 @@ function TotalQuantity(){
         $result = connect() -> query($sql);
 
         return $result;
+}
+
+function LastPicUpdate($id, $name, $idCategorie, $price, $quantity, $description){
+
+    $sql = "UPDATE products SET name = '$name', id_category = '$idCategorie', id_user= '1', price = '$price', quantity = '$quantity', description = '$description' WHERE id = '$id'";
+    $result = connect() -> query($sql);
+
+    $_SESSION['icon'] = "warning";
+    $_SESSION['message'] = "Produit modifié avec succès";
+
+    return 1;
 }

@@ -33,9 +33,9 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">Id</th>
+                                                <th scope="col">Picture</th>
                                                 <th scope="col">Product Name</th>
                                                 <th scope="col">Category</th>
-                                                <th scope="col">Picture</th>
                                                 <th scope="col">Price $(USD)</th>
                                                 <th scope="col">Quantity</th>
                                                 <th scope="col">Description</th>
@@ -46,13 +46,13 @@
                                             <?php foreach($AllProducts as $product) {?>
                                             <tr id="Product<?= $product['idProduct']; ?>" >
                                                 <th scope="row"><?= $product['idProduct']; ?></th>
+                                                <?php if(!empty($product['picture'])){
+                                                    echo '<td><img id="ProductPicture'. $product['idProduct'].'" src="'.$product['picture'].'" style="width:4rem;" /></td>';
+                                                }else{
+                                                    echo '<td><img class="m-0" src="../assets/img/logo/frame.png" style="width:4rem;height: 4.7rem;" /></td>';
+                                                    } ?>
                                                 <td id="ProductName<?= $product['idProduct']; ?>" ><?= $product['nameProduct']; ?></td>
                                                 <td id="ProductCategory<?= $product['idProduct']; ?>"><?= $product['nameCategory']; ?></td>
-                                                <?php if(!empty($product['picture'])){
-                                                    echo '<td><img  id="ProductPicture'. $product['idProduct'].'" src="'.$product['picture'].'" style="width:4rem;" /></td>';
-                                                }else{
-                                                    echo '<td><img src="../assets/img/logo/frame.png" style="width:4rem;" /></td>';
-                                                    } ?>
                                                 <td id="ProductPrice<?= $product['idProduct']; ?>"><?= $product['price']; ?></td>
                                                 <td id="ProductQuantity<?= $product['idProduct']; ?>"><?= $product['quantity']; ?></td>
                                                 <td id="ProductDescription<?= $product['idProduct']; ?>"><?= $product['description']; ?></td>
@@ -102,7 +102,7 @@
                                 <label class="col-form-label">Picture</label>
                                 <div id="">
                                     <input id="PictureInput" class="dropify" data-default-file="" data-height="100" type="file"  name="picture"  />
-                                    <div id="ValidatePicture"></div>
+                                    <div id="ValidatePicture" class="text-success"></div>
                                 </div>
                             </div>
                             <div class="mb-0">

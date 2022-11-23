@@ -39,6 +39,7 @@
         $('.dropify').dropify({
             tpl: {
                 wrap: '<div id="PictureFileField" class="dropify-wrapper" style=" border-radius: 1em !important;background-color: #151521 !important;"></div>',
+                preview: '<div id="PreviewFileField" class="dropify-preview"><span class="dropify-render"></span><div class="dropify-infos"><div class="dropify-infos-inner"><p class="dropify-infos-message">{{ replace }}</p></div></div></div>',
             },
             messages: {
                 default: '<h6>Drag picture here</h6>',

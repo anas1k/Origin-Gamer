@@ -34,8 +34,7 @@ foreach($AllProducts as $product){
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(isset($_REQUEST['addProductForm'])){
         extract($_POST);
-        /* var_dump($_POST);
-        die ; */
+        
         if( empty($name) || empty($idCategory) || empty($price)  || empty($quantity)|| empty($description) ){
             $_SESSION['icon'] = "error";
             $_SESSION['message'] = "Veuillez remplir tous les champs";
@@ -149,6 +148,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(isset($_REQUEST['updateProductForm'])){
         extract($_POST);
+        /* print_r($_FILES);
+        die ; */
         if( empty($name) || empty($price) || empty($quantity) || empty($idCategory) || empty($description) ){
             $_SESSION['icon'] = "error";
             $_SESSION['message'] = "Veuillez remplir tous les champs";
@@ -156,46 +157,54 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             die;
         }else{
             if ($_FILES['picture']['name'] != "") {
-            $fileName = $_FILES['picture']['name'];
-            $fileTmpName = $_FILES['picture']['tmp_name'];
-            $fileSize = $_FILES['picture']['size'];
-            $fileError = $_FILES['picture']['error'];
-            $fileType = $_FILES['picture']['type'];
+                $fileName = $_FILES['picture']['name'];
+                $fileTmpName = $_FILES['picture']['tmp_name'];
+                $fileSize = $_FILES['picture']['size'];
+                $fileError = $_FILES['picture']['error'];
+                $fileType = $_FILES['picture']['type'];
+            
+                $fileExt = explode('.', $fileName);
+                $fileActualExt = strtolower(end($fileExt));
+                $allowed = array('jpg', 'jpeg', 'png' , 'jfif');
         
-            $fileExt = explode('.', $fileName);
-            $fileActualExt = strtolower(end($fileExt));
-            $allowed = array('jpg', 'jpeg', 'png' , 'jfif');
-        
-            if (in_array($fileActualExt, $allowed)) {
-                if ($fileError === 0) {
-                    if ($fileSize < 10728640) {  // 10MB max file size
-                        $fileNameNew = date("dmy") . time() ."." . $fileActualExt; //create unique name using time and date and name of 'picture'
-                        $fileDestination = "../assets/img/uploads/" . $fileNameNew;
+                if (in_array($fileActualExt, $allowed)) {
+                    if ($fileError === 0) {
+                        if ($fileSize < 10728640) {  // 10MB max file size
+                            $fileNameNew = date("dmy") . time() ."." . $fileActualExt; //create unique name using time and date and name of 'picture'
+                            $fileDestination = "../assets/img/uploads/" . $fileNameNew;
 
-                        $result = EditProduct($id, $name, $idCategory, $fileDestination, $price, $quantity, $description);
-                        if($result == 1){
-                            move_uploaded_file($fileTmpName, $fileDestination);
-                            header('Location: ../core/allproducts.php'); //refresh page
+                            $result = EditProduct($id, $name, $idCategory, $fileDestination, $price, $quantity, $description);
+                            if($result == 1){
+                                move_uploaded_file($fileTmpName, $fileDestination);
+                                header('Location: ../core/allproducts.php'); //refresh page
+                                die;
+                            }
+                        } else {
+                            $_SESSION['message'] = "Le fichier est trop grand";
+                            header('Location:' . $_SERVER['PHP_SELF']); //to avoid alerts when refresh page
                             die;
                         }
                     } else {
-                        $_SESSION['message'] = "Le fichier est trop grand";
+                        $_SESSION['message'] = "Erreur de téléchargement de fichier";
                         header('Location:' . $_SERVER['PHP_SELF']); //to avoid alerts when refresh page
                         die;
                     }
                 } else {
-                    $_SESSION['message'] = "Erreur de téléchargement de fichier";
+                    $_SESSION['message'] = "Erreur";
                     header('Location:' . $_SERVER['PHP_SELF']); //to avoid alerts when refresh page
                     die;
                 }
-            } else {
-                $_SESSION['message'] = "Erreur";
-                header('Location:' . $_SERVER['PHP_SELF']); //to avoid alerts when refresh page
-                die;
+            }else{
+                $result = LastPicUpdate($id, $name, $idCategory, $price, $quantity, $description);
+                if($result == 1){
+                   
+                    header('Location: ../core/allproducts.php'); //refresh page
+                    die;
+                }
             }
         }
     }
-}}
+}
 
 
 // check user routing

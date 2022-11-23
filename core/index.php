@@ -63,9 +63,9 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">Id</th>
+                                                <th scope="col">Picture</th>
                                                 <th scope="col">Product Name</th>
                                                 <th scope="col">Category</th>
-                                                <th scope="col">Picture</th>
                                                 <th scope="col">Price</th>
                                                 <th scope="col">Quantity</th>
                                                 <th scope="col">Description</th>
@@ -75,6 +75,11 @@
                                             <?php foreach($FourProducts as $product) {?>
                                             <tr>
                                                 <th scope="row"><?= $product['id']; ?></th>
+                                                <?php if(!empty($product['picture'])){
+                                                    echo '<td><img src="'.$product['picture'].'" style="width:4rem;" /></td>';
+                                                }else{
+                                                    echo '<td><img src="../assets/img/logo/frame.png" style="width:4rem;" /></td>';
+                                                    } ?>
                                                 <td><?= $product['name']; ?></td>
                                                 <?php foreach($AllCategories as $Category){
                                                         if($Category['id'] == $product['id_category']){
@@ -82,11 +87,6 @@
                                                         }
                                                     }
                                                 ?>
-                                                <?php if(!empty($product['picture'])){
-                                                    echo '<td><img src="'.$product['picture'].'" style="width:4rem;" /></td>';
-                                                }else{
-                                                    echo '<td><img src="../assets/img/logo/frame.png" style="width:4rem;" /></td>';
-                                                    } ?>
                                                 <td><?= $product['price'].'$'; ?></td>
                                                 <td><?= $product['quantity']; ?></td>
                                                 <td><?= $product['description']; ?></td>

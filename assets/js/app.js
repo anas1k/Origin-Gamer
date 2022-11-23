@@ -18,6 +18,7 @@ $('#saveProduct').click(function (e) {
         document.getElementById('ValidateDescription').innerText = '';
 
         document.getElementById('NameInput').setAttribute('style', 'color:red; border: 1px red solid ;');
+
         document.getElementById('ValidateName').innerText = 'Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres et sans caractéres speciaux!!';
         document.getElementById('ValidateName').setAttribute('style', 'color:red;font-size:10px;');
     } else if (document.getElementById('DescriptionInput').value == '' || !/^[a-z A-Z.:,]{5,}$/.test(document.getElementById('DescriptionInput').value)) {
@@ -38,9 +39,9 @@ $('#saveProduct').click(function (e) {
         document.getElementById('DescriptionInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
         document.getElementById('ValidateDescription').innerText = '';
 
-        /* document.getElementById('DescriptionInput').setAttribute('style', 'color:red; border: 1px red solid ;'); */
-        document.getElementById('ValidatePicture').innerText = 'Veuillez entrer une description valide ! verifiez que la description contient au minimum 5 caractéres!!';
-        document.getElementById('PictureFileField').setAttribute('style', ' border-radius: 1em !important;background-color: #151521 !important;border-color:red;font-size:10px;');
+        document.getElementById('ValidatePicture').setAttribute('class', 'text-danger');
+        document.getElementById('ValidatePicture').innerText = 'Veuillez entrer une photo valide ! verifiez que la photo contient au maximum 10MB !!';
+        document.getElementById('PictureFileField').setAttribute('style', 'height:10rem; border-radius: 1em !important;background-color: #151521 !important;border-color:red;font-size:10px;');
     }
 });
 
@@ -52,7 +53,7 @@ $('#updateProduct').click(function (ee) {
         document.getElementById('DescriptionInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
         document.getElementById('ValidateDescription').innerText = '';
 
-        document.getElementById('NameInput').setAttribute('style', 'color:red; border: 1px red solid ;');
+        document.getElementById('NameInput').setAttribute('style', 'color: red; border: 1px red solid;');
         document.getElementById('ValidateName').innerText = 'Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres et sans caractéres speciaux!!';
         document.getElementById('ValidateName').setAttribute('style', 'color:red;font-size:10px;');
     } else if (document.getElementById('DescriptionInput').value == '' || !/^[a-z A-Z.:,/]{5,}$/.test(document.getElementById('DescriptionInput').value)) {
@@ -64,6 +65,18 @@ $('#updateProduct').click(function (ee) {
         document.getElementById('DescriptionInput').setAttribute('style', 'color:red; border: 1px red solid ;');
         document.getElementById('ValidateDescription').innerText = 'Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres!!';
         document.getElementById('ValidateDescription').setAttribute('style', 'color:red;font-size:10px;');
+    } else if (document.getElementById('PictureFileField').classList.contains('has-preview') == false) {
+        ee.preventDefault();
+
+        document.getElementById('NameInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
+        document.getElementById('ValidateName').innerText = '';
+
+        document.getElementById('DescriptionInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
+        document.getElementById('ValidateDescription').innerText = '';
+
+        document.getElementById('ValidatePicture').setAttribute('class', 'text-danger');
+        document.getElementById('ValidatePicture').innerText = 'Veuillez entrer une photo valide ! verifiez que la photo contient au maximum 10MB !!';
+        document.getElementById('PictureFileField').setAttribute('style', 'height:10rem; border-radius: 1em !important;background-color: #151521 !important;border-color:red;font-size:10px;');
     }
 });
 
@@ -83,6 +96,11 @@ function createProduct() {
 
     document.getElementById('NameInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
     document.getElementById('ValidateName').innerText = '';
+    document.getElementById('ValidatePicture').innerText = '';
+    document.getElementById('PictureFileField').setAttribute('style', 'border-radius: 1em !important; background-color: #151521 !important;');
+    document.getElementById('PictureFileField').setAttribute('class', 'dropify-wrapper');
+    document.getElementById('PictureInput').setAttribute('data-default-file', '');
+    document.getElementById('PreviewFileField').setAttribute('style', 'display:none;');
 }
 
 function GetProduct(id, idCategory) {
@@ -117,10 +135,13 @@ function GetProduct(id, idCategory) {
 
     let picTitle = document.querySelector(`#ProductPicture${id}`).getAttribute('src');
     console.log(picTitle);
-    /* document.querySelector('#PictureFileField').innerHTML = `<img type="file" id="PictureInput" class="dropify" data-default-file="${document
-        .querySelector(`#ProductPicture${id}`)
-        .getAttribute('src')}" data-height="100" required  name="picture">`; */
-    document.querySelector('#PictureInput').setAttribute('data-default-file', picTitle);
+    document.getElementById('PictureInput').setAttribute('src', picTitle);
+    document.getElementById('PictureFileField').setAttribute('class', 'dropify-wrapper has-preview');
+    document.getElementById('PreviewFileField').setAttribute('style', 'display:block;');
+    document.querySelector('.dropify-render').innerHTML = `<img src="${picTitle}" alt="Picture" style="max-height: 100px;"/>`;
+    document.getElementById('ValidatePicture').setAttribute('class', 'text-success');
+    document.getElementById('ValidatePicture').innerText = 'Photo précédente deja selectionné ! si vous voulez changer la photo veuillez entrer une nouvelle photo !!';
+    document.getElementById('PictureFileField').setAttribute('style', 'height:10rem; border-radius: 1em !important;background-color: #151521 !important;border-color:green;font-size:10px;');
 }
 
 function GetCategory(id) {
