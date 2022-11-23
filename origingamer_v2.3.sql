@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 21, 2022 at 11:50 PM
+-- Generation Time: Nov 23, 2022 at 03:13 AM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -39,8 +39,9 @@ CREATE TABLE `category` (
 INSERT INTO `category` (`id`, `name`) VALUES
 (1, 'Mouse'),
 (2, 'Keyboard'),
-(13, 'HeadPhones'),
-(26, 'dddss');
+(4, 'Displays'),
+(5, 'Graphic Card'),
+(6, 'Headset');
 
 -- --------------------------------------------------------
 
@@ -64,9 +65,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `id_category`, `id_user`, `picture`, `price`, `quantity`, `description`) VALUES
-(1, 'Glorious model O', 1, 1, '../assets/img/uploads/2111221669066709.jpg', 60, 5, 'fdgsdgsdfgss casc cas'),
-(2, 'Razer', 1, 1, '../assets/img/uploads/2111221669074116.jpg', 83.2, 13, 'gasfdg afdgasdfdgafdg'),
-(23, 'Hollee Pollard', 2, 1, '../assets/img/uploads/2111221669074568.jpg', 278, 20, 'Obcaecati dolore ali');
+(1, 'Glorious model', 2, 1, '../assets/img/uploads/2111221669066709.jpg', 65, 5, 'fdgsdgsdfgss casc cll'),
+(24, 'Timon Mc', 1, 1, '../assets/img/uploads/2311221669167730.jpg', 66, 4, 'Sit aut beatae cc'),
+(26, 'Jena Hoover', 1, 1, '../assets/img/uploads/2311221669167403.jpg', 31, 17, 'Alias consequuntur i'),
+(27, 'Sierra Nelson', 1, 1, '../assets/img/uploads/2311221669167422.jfif', 67, 41, 'Temporibus laborum'),
+(28, 'Leroy Donovan', 2, 1, '../assets/img/uploads/2311221669170786.jfif', 83.43, 10, 'Consectetur et nost'),
+(31, 'Lucian Powel', 2, 1, '../assets/img/uploads/2311221669168417.jpg', 23, 15, 'Saepe omnis ut labor');
 
 -- --------------------------------------------------------
 
@@ -120,13 +124,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `users`

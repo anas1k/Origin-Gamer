@@ -26,7 +26,7 @@ function EditCategory($id, $name){
     $sql = "UPDATE category SET name = '$name' WHERE id = '$id'";
     $result = connect() -> query($sql);
 
-    $_SESSION['icon'] = "warning";
+    $_SESSION['icon'] = "success";
     $_SESSION['message'] = "Category modifié avec succès";
 
     return 1;
@@ -37,6 +37,8 @@ function DeleteCategory($id){
     $sql = "DELETE FROM category WHERE id = '$id'";
     $result = connect() -> query($sql);
 
+    $_SESSION['icon'] = "error";
+    $_SESSION['message'] = "Category supprimé avec succès";
 
     return 1;
 }

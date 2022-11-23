@@ -54,7 +54,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             
                 if (in_array($fileActualExt, $allowed)) {
                     if ($fileError === 0) {
-                        if ($fileSize < 10728640) {  // 10MB max file size
+                        if ($fileSize < 1728640) {  // 10MB max file size
                             $fileNameNew = date("dmy") . time() . "." . $fileActualExt; //create unique name using time and date and name of 'picture'
                             $fileDestination = "../assets/img/uploads/" . $fileNameNew;
 
@@ -65,18 +65,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                                 die;
                             }
                         } else {
-                            $_SESSION['message'] = "Le fichier est trop grand";
-                            header('Location:' . $_SERVER['PHP_SELF']); //to avoid alerts when refresh page
+                            $_SESSION['message'] = "erreur";
+                            $_SESSION['message'] = "La taille de fichier est trop grand!!";
+                            header('Location: ../core/allproducts.php'); //to avoid alerts when refresh page
                             die;
                         }
                     } else {
-                        $_SESSION['message'] = "Erreur de téléchargement de fichier";
-                        header('Location:' . $_SERVER['PHP_SELF']); //to avoid alerts when refresh page
+                        $_SESSION['message'] = "erreur";
+                        $_SESSION['message'] = "Erreur de téléchargement de fichier!!";
+                        header('Location: ../core/allproducts.php'); //to avoid alerts when refresh page
                         die;
                     }
                 } else {
-                    $_SESSION['message'] = "Erreur";
-                    header('Location:' . $_SERVER['PHP_SELF']); //to avoid alerts when refresh page
+                    $_SESSION['message'] = "erreur";
+                    $_SESSION['message'] = "Erreur de type de fichier!!";
+                    header('Location: ../core/allproducts.php'); //to avoid alerts when refresh page
                     die;
                 }
             }
@@ -92,7 +95,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         if($result == 1){
             /* $_SESSION['icon'] = "error";
             $_SESSION['message'] = "Produit supprimé avec succès"; */
-            
             die;
         }
     }
@@ -113,19 +115,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 // delete category routing
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-     /* var_dump($_REQUEST);
-        die; */
     if(isset($_REQUEST['deleteCategoryForm'])){
-       /*  var_dump($_REQUEST);
-        die; */
         $id = $_REQUEST['deleteCategoryForm'];
         $result = DeleteCategory($id);
         if($result == 1){
-            
-            header('Location: ../core/allcategories.php'); //refresh page
-
-            $_SESSION['icon'] = "error";
-            $_SESSION['message'] = "Category supprimé avec succès";
+            /* header('Location: ../core/allcategories.php'); //refresh page */
             die;
         }
     }
@@ -148,8 +142,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(isset($_REQUEST['updateProductForm'])){
         extract($_POST);
-        /* print_r($_FILES);
-        die ; */
         if( empty($name) || empty($price) || empty($quantity) || empty($idCategory) || empty($description) ){
             $_SESSION['icon'] = "error";
             $_SESSION['message'] = "Veuillez remplir tous les champs";
@@ -180,24 +172,26 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                                 die;
                             }
                         } else {
-                            $_SESSION['message'] = "Le fichier est trop grand";
-                            header('Location:' . $_SERVER['PHP_SELF']); //to avoid alerts when refresh page
+                            $_SESSION['message'] = "erreur";
+                            $_SESSION['message'] = "La taille de fichier est trop grand!!";
+                            header('Location: ../core/allproducts.php'); //to avoid alerts when refresh page
                             die;
                         }
                     } else {
-                        $_SESSION['message'] = "Erreur de téléchargement de fichier";
-                        header('Location:' . $_SERVER['PHP_SELF']); //to avoid alerts when refresh page
+                        $_SESSION['message'] = "erreur";
+                        $_SESSION['message'] = "Erreur de téléchargement de fichier!!";
+                        header('Location: ../core/allproducts.php'); //to avoid alerts when refresh page
                         die;
                     }
                 } else {
-                    $_SESSION['message'] = "Erreur";
-                    header('Location:' . $_SERVER['PHP_SELF']); //to avoid alerts when refresh page
+                    $_SESSION['message'] = "erreur";
+                    $_SESSION['message'] = "Erreur de type de fichier!!";
+                    header('Location: ../core/allproducts.php'); //to avoid alerts when refresh page
                     die;
                 }
             }else{
                 $result = LastPicUpdate($id, $name, $idCategory, $price, $quantity, $description);
                 if($result == 1){
-                   
                     header('Location: ../core/allproducts.php'); //refresh page
                     die;
                 }

@@ -101,7 +101,7 @@
                             <div class="mb-0">
                                 <label class="col-form-label">Picture</label>
                                 <div id="">
-                                    <input id="PictureInput" class="dropify" data-default-file="" data-height="100" type="file"  name="picture"  />
+                                    <input id="PictureInput" class="dropify" data-max-file-size-preview="10M" data-height="100" type="file"  name="picture"  />
                                     <div id="ValidatePicture" class="text-success"></div>
                                 </div>
                             </div>

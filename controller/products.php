@@ -43,7 +43,7 @@ function EditProduct($id, $name, $idCategorie, $picture, $price, $quantity, $des
     $sql = "UPDATE products SET name = '$name', id_category = '$idCategorie', id_user= '1', picture = '$picture', price = '$price', quantity = '$quantity', description = '$description' WHERE id = '$id'";
     $result = connect() -> query($sql);
 
-    $_SESSION['icon'] = "warning";
+    $_SESSION['icon'] = "success";
     $_SESSION['message'] = "Produit modifié avec succès";
 
     return 1;
@@ -78,7 +78,7 @@ function LastPicUpdate($id, $name, $idCategorie, $price, $quantity, $description
     $sql = "UPDATE products SET name = '$name', id_category = '$idCategorie', id_user= '1', price = '$price', quantity = '$quantity', description = '$description' WHERE id = '$id'";
     $result = connect() -> query($sql);
 
-    $_SESSION['icon'] = "warning";
+    $_SESSION['icon'] = "success";
     $_SESSION['message'] = "Produit modifié avec succès";
 
     return 1;
