@@ -19,20 +19,20 @@
                     <form  method="POST">
                         <div class="input-group mt-2 p-2">
                             <span class="fa fa-user fa-lg pt-3 input-group-text bg-secondary" id="basic-addon1"></span>
-                            <input type="text" class="form-control" placeholder="Username" id="EmailInput" name="email" aria-describedby="basic-addon1">
-                            <div class="ValidateEmail"></div>
+                            <input type="text" class="form-control col-12" placeholder="Username" id="EmailInput" name="email" >
+                            <div class="col-12" id="ValidateEmail"></div>
                         </div>
                         <div class="input-group pt-0 p-2">
                             <span class="fa fa-lock fa-lg pt-3 input-group-text bg-secondary" id="basic-addon1"></span>
                             <input type="password" class="form-control" placeholder="Password" id="PasswordInput" name="password" aria-describedby="basic-addon1">
-                            <div class="ValidatePassword"></div>
+                            <div class="col-12" id="ValidatePassword"></div>
                         </div>
                         <!-- <div class="input-group p-2">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                             <label class="form-check-label text-white ml-3" for="flexCheckDefault"> Remember Me </label>
                         </div> -->
                         <div class="">
-                            <button type='submit' name="loginUser" class="mb-5 btn btn-primary mt-4 col-12" style>Connect</button>
+                            <button type='submit' id="LoginUser" name="loginUser" class="mb-5 btn btn-primary mt-4 col-12" style>Connect</button>
                         </div>
                     </form>
                 </div>

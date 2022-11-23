@@ -5,7 +5,7 @@
 
 // event listener for saveValidation
 $('#saveProduct').click(function (e) {
-    if (document.getElementById('NameInput').value == '' || !/^[a-z A-Z]{5,}$/.test(document.getElementById('NameInput').value)) {
+    if (document.getElementById('NameInput').value == '' || !/^[a-z A-Z 0-9]{5,}$/.test(document.getElementById('NameInput').value)) {
         e.preventDefault();
 
         document.getElementById('DescriptionInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
@@ -15,7 +15,7 @@ $('#saveProduct').click(function (e) {
 
         document.getElementById('ValidateName').innerText = 'Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres et sans caractéres speciaux!!';
         document.getElementById('ValidateName').setAttribute('style', 'color:red;font-size:10px;');
-    } else if (document.getElementById('DescriptionInput').value == '' || !/^[a-z A-Z.:,]{5,}$/.test(document.getElementById('DescriptionInput').value)) {
+    } else if (document.getElementById('DescriptionInput').value == '' || !/^[a-z A-Z 0-9.:,]{5,}$/.test(document.getElementById('DescriptionInput').value)) {
         e.preventDefault();
 
         document.getElementById('NameInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
@@ -41,7 +41,7 @@ $('#saveProduct').click(function (e) {
 
 // event listener for updateValidation
 $('#updateProduct').click(function (ee) {
-    if (document.getElementById('NameInput').value == '' || !/^[a-z A-Z]{5,}$/.test(document.getElementById('NameInput').value)) {
+    if (document.getElementById('NameInput').value == '' || !/^[a-z A-Z 0-9]{5,}$/.test(document.getElementById('NameInput').value)) {
         ee.preventDefault();
 
         document.getElementById('DescriptionInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
@@ -50,7 +50,7 @@ $('#updateProduct').click(function (ee) {
         document.getElementById('NameInput').setAttribute('style', 'color: red; border: 1px red solid;');
         document.getElementById('ValidateName').innerText = 'Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres et sans caractéres speciaux!!';
         document.getElementById('ValidateName').setAttribute('style', 'color:red;font-size:10px;');
-    } else if (document.getElementById('DescriptionInput').value == '' || !/^[a-z A-Z.:,/]{5,}$/.test(document.getElementById('DescriptionInput').value)) {
+    } else if (document.getElementById('DescriptionInput').value == '' || !/^[a-z A-Z 0-9.:,/]{5,}$/.test(document.getElementById('DescriptionInput').value)) {
         ee.preventDefault();
 
         document.getElementById('NameInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
@@ -75,16 +75,25 @@ $('#updateProduct').click(function (ee) {
 });
 
 // event listener for loginValidation
-$('#login').click(function (e) {
+$('#LoginUser').click(function (e) {
     if (document.getElementById('EmailInput').value == '' || !/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/.test(document.getElementById('EmailInput').value)) {
         e.preventDefault();
 
-        document.getElementById('DescriptionInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
-        document.getElementById('ValidateDescription').innerText = '';
+        document.getElementById('PasswordInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
+        document.getElementById('ValidatePassword').innerText = '';
 
-        document.getElementById('NameInput').setAttribute('style', 'color: red; border: 1px red solid;');
-        document.getElementById('ValidateName').innerText = 'Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres et sans caractéres speciaux!!';
-        document.getElementById('ValidateName').setAttribute('style', 'color:red;font-size:10px;');
+        document.getElementById('EmailInput').setAttribute('style', 'color: red;border: 1px red solid;');
+        document.getElementById('ValidateEmail').innerText = "Veuillez entrer un email valide ! Verifiez que l'email sans caractéres speciaux!!";
+        document.getElementById('ValidateEmail').setAttribute('style', 'color:red;font-size:10px;');
+    } else if (document.getElementById('PasswordInput').value == '' || !/^[a-z A-Z0-9]{5,}$/.test(document.getElementById('PasswordInput').value)) {
+        e.preventDefault();
+
+        document.getElementById('EmailInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
+        document.getElementById('ValidateEmail').innerText = '';
+
+        document.getElementById('PasswordInput').setAttribute('style', 'color:red; border: 1px red solid ;');
+        document.getElementById('ValidatePassword').innerText = 'Veuillez entrer un mot de passe valide ! Verifiez que le mot de passe contient au minimum 5 caractéres et sans caractéres speciaux!!';
+        document.getElementById('ValidatePassword').setAttribute('style', 'color:red;font-size:10px;');
     }
 });
 

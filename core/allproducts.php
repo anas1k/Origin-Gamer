@@ -83,7 +83,7 @@
                 <div class="modal-content background text-white">
                     <div class="modal-header">
                         <h3 class="" id="exampleModalLabel">Add Product</h3>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" style="color:white; border: 1px white solid ;" class="fa-solid fa-xmark" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body pt-0 pb-1">
                         <form id="form" method="POST" enctype="multipart/form-data" >
