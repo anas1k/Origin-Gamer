@@ -1,5 +1,5 @@
-<footer class="d-flex justify-content-end">
-    <span>Copyright © 2022 BY AK</span>
+<footer class="d-flex justify-content-end" >
+    <span <?=$path ='Log In' ? 'style="display: none;"' : '' ?> >Copyright © 2022 BY AK</span>
 </footer>
 <script src="../assets/js/app.js"></script>
 <script>

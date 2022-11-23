@@ -99,6 +99,7 @@ textarea {
         margin-left: 4em !important;
     }
 }
+
 @media (max-width: 325.98px) {
     .logo {
         margin-left: 2em !important;
@@ -113,18 +114,27 @@ textarea {
         margin-left: 0em !important;
     }
 }
+
 @media (max-width: 1660.98px) {
     .position {
         margin: 2em;
     }
 }
+
 @media (min-width: 2300.98px) {
     .position {
         margin: 6em !important;
     }
 }
+
 @media (max-width: 1029.98px) {
     .position {
         margin: 0em !important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .wallpaper {
+        display: none;
     }
 }

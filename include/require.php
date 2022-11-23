@@ -100,44 +100,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     }
 }
 
-// add category routing
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if(isset($_REQUEST['addCategoryForm'])){
-        $name = $_REQUEST['name'];
-        $result = AddCategory($name);
-        if($result == 1){
-            header('Location: '. $_SERVER['PHP_SELF']); //refresh page
-            die;
-        }
-
-    }
-}
-
-// delete category routing
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    if(isset($_REQUEST['deleteCategoryForm'])){
-        $id = $_REQUEST['deleteCategoryForm'];
-        $result = DeleteCategory($id);
-        if($result == 1){
-            /* header('Location: ../core/allcategories.php'); //refresh page */
-            die;
-        }
-    }
-}
-
-// edit category routing
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    if(isset($_REQUEST['editCategoryForm'])){
-        $id = $_REQUEST['id'];
-        $name = $_REQUEST['name'];
-        $result = EditCategory($id, $name);
-        if($result == 1){
-            header('Location: ../core/allcategories.php'); //refresh page
-            die;
-        }
-    }
-}
-
 // edit product routing
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(isset($_REQUEST['updateProductForm'])){
@@ -200,6 +162,43 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     }
 }
 
+// add category routing
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if(isset($_REQUEST['addCategoryForm'])){
+        $name = $_REQUEST['name'];
+        $result = AddCategory($name);
+        if($result == 1){
+            header('Location: '. $_SERVER['PHP_SELF']); //refresh page
+            die;
+        }
+
+    }
+}
+
+// delete category routing
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    if(isset($_REQUEST['deleteCategoryForm'])){
+        $id = $_REQUEST['deleteCategoryForm'];
+        $result = DeleteCategory($id);
+        if($result == 1){
+            /* header('Location: ../core/allcategories.php'); //refresh page */
+            die;
+        }
+    }
+}
+
+// edit category routing
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    if(isset($_REQUEST['editCategoryForm'])){
+        $id = $_REQUEST['id'];
+        $name = $_REQUEST['name'];
+        $result = EditCategory($id, $name);
+        if($result == 1){
+            header('Location: ../core/allcategories.php'); //refresh page
+            die;
+        }
+    }
+}
 
 // check user routing
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -208,8 +207,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $password = $_REQUEST['password'];
         $result = CheckUser($email, $password);
         if($result != 0){
-            header('Location: ../core/dashboard.php'); //refresh page
+            $_SESSION['id'] = $result['id'];
+            $_SESSION['fullname'] = $result['fullname'];
+            $_SESSION['email'] = $result['email'];
+            
+            header('Location: ../core/'); //refresh page
             die;
         }
     }
 }
+

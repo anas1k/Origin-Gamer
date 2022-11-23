@@ -1,7 +1,12 @@
 <?php
     include('../include/require.php');
     $path = "Products";
-
+    if(!isset($_SESSION['fullname'])){
+        $_SESSION['icon'] = "error";
+        $_SESSION['message'] = "Veuillez saisir votre email et mot de passe";
+        header('Location: ../core/login.php');
+        die;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

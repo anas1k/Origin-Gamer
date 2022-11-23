@@ -35,10 +35,10 @@
     </div>
     <div class="col-12 col-md-5 col-lg-7 d-flex align-items-center justify-content-md-end mr-5 mt-3 mt-md-0">
         <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="true">John Doe</button>
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="true"><?= $_SESSION['fullname']; ?></button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                <li><a class="dropdown-item" href="../core/signout.php">Sign out</a></li>
             </ul>
         </div>
     </div>
