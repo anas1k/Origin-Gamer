@@ -34,7 +34,7 @@ foreach($AllProducts as $product){
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(isset($_REQUEST['addProductForm'])){
         extract($_POST);
-        
+        $idUser = $_SESSION['id'];
         if( empty($name) || empty($idCategory) || empty($price)  || empty($quantity)|| empty($description) ){
             $_SESSION['icon'] = "error";
             $_SESSION['message'] = "Veuillez remplir tous les champs";
@@ -58,7 +58,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                             $fileNameNew = date("dmy") . time() . "." . $fileActualExt; //create unique name using time and date and name of 'picture'
                             $fileDestination = "../assets/img/uploads/" . $fileNameNew;
 
-                            $result = AddProduct($name, $idCategory, $fileDestination, $price, $quantity, $description);
+                            $result = AddProduct($name, $idCategory, $idUser, $fileDestination, $price, $quantity, $description);
                             if($result == 1){
                                 move_uploaded_file($fileTmpName, $fileDestination);
                                 header('Location: '. $_SERVER['PHP_SELF']); //refresh page
@@ -104,6 +104,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(isset($_REQUEST['updateProductForm'])){
         extract($_POST);
+        $idUser = $_SESSION['id'];
         if( empty($name) || empty($price) || empty($quantity) || empty($idCategory) || empty($description) ){
             $_SESSION['icon'] = "error";
             $_SESSION['message'] = "Veuillez remplir tous les champs";
@@ -127,7 +128,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                             $fileNameNew = date("dmy") . time() ."." . $fileActualExt; //create unique name using time and date and name of 'picture'
                             $fileDestination = "../assets/img/uploads/" . $fileNameNew;
 
-                            $result = EditProduct($id, $name, $idCategory, $fileDestination, $price, $quantity, $description);
+                            $result = EditProduct($id, $name, $idCategory, $idUser, $fileDestination, $price, $quantity, $description);
                             if($result == 1){
                                 move_uploaded_file($fileTmpName, $fileDestination);
                                 header('Location: ../core/allproducts.php'); //refresh page
@@ -152,7 +153,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                     die;
                 }
             }else{
-                $result = LastPicUpdate($id, $name, $idCategory, $price, $quantity, $description);
+                $result = LastPicUpdate($id, $name, $idCategory, $idUser, $price, $quantity, $description);
                 if($result == 1){
                     header('Location: ../core/allproducts.php'); //refresh page
                     die;

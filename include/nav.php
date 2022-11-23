@@ -6,19 +6,19 @@
             <li class="nav-item m-2">
                 <a class="nav-link <?= $path == "Home" ? "active" :""; ?> d-flex align-items-center" href="../core/index.php">
                     <i class="text-white  fa fa-house"></i>
-                    <span class="m-4 text-white">Home</span>
+                    <span class="m-4 <?= $path == "Home" ? "active-title" :"text-white"; ?>">Home</span>
                 </a>
             </li>
             <li class="nav-item m-2">
                 <a class="nav-link <?= $path == "Products" ? "active" :""; ?> d-flex align-items-center" href="../core/allproducts.php">
                     <i class="fa fa-boxes-stacked text-white"></i>
-                    <span class="m-4 text-white">Products</span>
+                    <span class="m-4 <?= $path == "Products" ? "active-title" :"text-white"; ?>">Products</span>
                 </a>
             </li>
             <li class="nav-item m-2">
                 <a class="nav-link <?= $path == "Category" ? "active" :""; ?> d-flex align-items-center" href="../core/allcategories.php">
                     <i class="fa fa-list text-white"></i>
-                    <span class="m-4 text-white">Category</span>
+                    <span class="m-4 <?= $path == "Category" ? "active-title" :"text-white"; ?>">Category</span>
                 </a>
             </li>
         </ul>  
@@ -35,7 +35,7 @@
     </div>
     <div class="col-12 col-md-5 col-lg-7 d-flex align-items-center justify-content-md-end mr-5 mt-3 mt-md-0">
         <div class="dropdown">
-            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="true"><i class="fa-regular fa-user"><span class="ml-3 text-capitalize" style="letter-spacing: 0.25em;text-transform: capitalize !important;"><?= $_SESSION['fullname']; ?></span></i></button>
+            <button class="btn btn-info dropdown-toggle  text-capitalize" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="true"><i class="fa-regular fa-user"><span class="ml-3" style="letter-spacing: 0.25em;text-transform: capitalize !important;"><?= $_SESSION['fullname']; ?></span></i></button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <!-- <li><a class="dropdown-item" href="#">Settings</a></li> -->
                 <li><a class="dropdown-item" href="../core/signout.php"><i class="fa fa-right-from-bracket"><span class="ml-3">Sign out </span></i></a></li>

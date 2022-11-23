@@ -45,6 +45,9 @@
 .active {
     background-color: #4059a0 !important;
 }
+.active-title {
+    color: #4059a0 !important;
+}
 .container-fluid {
     display: block;
 }

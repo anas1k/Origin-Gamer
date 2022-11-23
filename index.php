@@ -1,2 +1,2 @@
 <?php 
-    header('Location: core/');
+    header('Location: core/login.php');

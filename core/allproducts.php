@@ -82,8 +82,8 @@
             <div class="modal-dialog modal-dialog-centered mt-3 mb-1">
                 <div class="modal-content background text-white">
                     <div class="modal-header">
-                        <h3 class="" id="exampleModalLabel">Add Product</h3>
-                        <button type="button" style="color:white; border: 1px white solid ;" class="fa-solid fa-xmark" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="" id="exampleModalLabel">Add Product</h5>
+                        <button type="button" style="border: 0.1rem black solid ;border-radius: 1rem" class="fa fa-xmark p-1 pb-0 m-0" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body pt-0 pb-1">
                         <form id="form" method="POST" enctype="multipart/form-data" >

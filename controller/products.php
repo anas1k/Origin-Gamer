@@ -27,9 +27,9 @@ function FourProducts(){
     return $result;
 }
 
-function AddProduct($name, $idCategorie, $picture, $price, $quantity, $description){
+function AddProduct($name, $idCategorie, $idUser, $picture, $price, $quantity, $description){
 
-    $sql = "INSERT INTO products (name, id_category, id_user, picture, price, quantity, description) VALUES ('$name', '$idCategorie', '1', '$picture', '$price', '$quantity', '$description')";
+    $sql = "INSERT INTO products (name, id_category, id_user, picture, price, quantity, description) VALUES ('$name', '$idCategorie', '$idUser', '$picture', '$price', '$quantity', '$description')";
     $result = connect() -> query($sql);
 
     $_SESSION['icon'] = "success";
@@ -38,9 +38,9 @@ function AddProduct($name, $idCategorie, $picture, $price, $quantity, $descripti
     return 1;
 }
 
-function EditProduct($id, $name, $idCategorie, $picture, $price, $quantity, $description){
+function EditProduct($id, $name, $idCategorie, $idUser, $picture, $price, $quantity, $description){
 
-    $sql = "UPDATE products SET name = '$name', id_category = '$idCategorie', id_user= '1', picture = '$picture', price = '$price', quantity = '$quantity', description = '$description' WHERE id = '$id'";
+    $sql = "UPDATE products SET name = '$name', id_category = '$idCategorie', id_user= '$idUser', picture = '$picture', price = '$price', quantity = '$quantity', description = '$description' WHERE id = '$id'";
     $result = connect() -> query($sql);
 
     $_SESSION['icon'] = "success";
@@ -73,9 +73,9 @@ function TotalQuantity(){
         return $result;
 }
 
-function LastPicUpdate($id, $name, $idCategorie, $price, $quantity, $description){
+function LastPicUpdate($id, $name, $idCategorie, $idUser, $price, $quantity, $description){
 
-    $sql = "UPDATE products SET name = '$name', id_category = '$idCategorie', id_user= '1', price = '$price', quantity = '$quantity', description = '$description' WHERE id = '$id'";
+    $sql = "UPDATE products SET name = '$name', id_category = '$idCategorie', id_user= '$idUser', price = '$price', quantity = '$quantity', description = '$description' WHERE id = '$id'";
     $result = connect() -> query($sql);
 
     $_SESSION['icon'] = "success";

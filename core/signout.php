@@ -4,5 +4,5 @@ session_start();
 
 session_destroy();
 
-header('Location: ../core/');
+header('Location: ../core/login.php');
 die;
