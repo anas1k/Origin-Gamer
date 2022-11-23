@@ -21,7 +21,7 @@
                 <h1 class="h2"><?= $path ?></h1>
                 <p>This is the page containing all available category in stock</p>
                 <div class="row">
-                    <div class="col-4 col-xl-4 mb-4 mb-lg-0">
+                    <div class="col-12 col-xs-4 col-md-4 col-xl-4 mb-4 mb-lg-0">
                         <div class="card">
                             <div class="d-flex justify-content-between align-items-center card-header m-2">
                                 <h5 >Add Category</h5>
@@ -50,7 +50,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-8 col-xl-8 mb-4 mb-lg-0">
+                    <div class="col-12 col-md-8 col-xl-8 mb-4 mb-lg-0">
                         <div class="card">
                             <div class="d-flex justify-content-between align-items-center card-header m-2">
                                 <h5 >All Categories</h5>
