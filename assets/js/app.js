@@ -74,6 +74,20 @@ $('#updateProduct').click(function (ee) {
     }
 });
 
+// event listener for loginValidation
+$('#login').click(function (e) {
+    if (document.getElementById('EmailInput').value == '' || !/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/.test(document.getElementById('EmailInput').value)) {
+        e.preventDefault();
+
+        document.getElementById('DescriptionInput').setAttribute('style', 'color:black; border: 1px #ced4da solid ;');
+        document.getElementById('ValidateDescription').innerText = '';
+
+        document.getElementById('NameInput').setAttribute('style', 'color: red; border: 1px red solid;');
+        document.getElementById('ValidateName').innerText = 'Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres et sans caractéres speciaux!!';
+        document.getElementById('ValidateName').setAttribute('style', 'color:red;font-size:10px;');
+    }
+});
+
 function createProduct() {
     // initialiser Product form
     document.getElementById('form').reset();
