@@ -131,6 +131,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                             $result = EditProduct($id, $name, $idCategory, $idUser, $fileDestination, $price, $quantity, $description);
                             if($result == 1){
                                 move_uploaded_file($fileTmpName, $fileDestination);
+                                $_SESSION['message'] = "success";
+                                $_SESSION['message'] = "Produit modifier par succes!!";
                                 header('Location: ../core/allproducts.php'); //refresh page
                                 die;
                             }
@@ -155,6 +157,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             }else{
                 $result = LastPicUpdate($id, $name, $idCategory, $idUser, $price, $quantity, $description);
                 if($result == 1){
+                    $_SESSION['message'] = "success";
+                    $_SESSION['message'] = "Produit modifier par succes!!";
                     header('Location: ../core/allproducts.php'); //refresh page
                     die;
                 }
@@ -182,7 +186,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $id = $_REQUEST['deleteCategoryForm'];
         $result = DeleteCategory($id);
         if($result == 1){
-            /* header('Location: ../core/allcategories.php'); //refresh page */
             die;
         }
     }
