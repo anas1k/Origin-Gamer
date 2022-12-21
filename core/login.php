@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="">
-        <main class="fullheight row col-12 mx-0">
+        <main class="row col-12 mx-0">
             <div class="col-12 col-md-12 col-lg-4 col-sm-12 fullheight background px-5">
                 <div class="d-flex flex-column  justify-content-center mt-5">
                     <img class="logo align-self-center mt-5" src="../assets/img/logo/logo.png" alt="logo" >

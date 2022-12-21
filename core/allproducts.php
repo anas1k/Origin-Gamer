@@ -77,67 +77,67 @@
                 </div>
                 
 
-        <!-- PRODUCT MODAL -->
-        <div class="modal fade " id="productModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered mt-3 mb-1">
-                <div class="modal-content background text-white">
-                    <div class="modal-header">
-                        <h5 class="" id="exampleModalLabel">Add Product</h5>
-                        <button type="button" class="fa fa-xmark px-1 p-0 m-0" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body pt-0 pb-1">
-                        <form id="form" method="POST" enctype="multipart/form-data" >
-                            <div class="mb-0">
-                                <label class="col-form-label">Name</label>
-                                <input type="text" class="form-control" id="NameInput" name="name" />
-                                <div id="ValidateName"></div>
-                            </div>
-                            <div class="mb-0">
-                                <label for="productCategory" class="col-form-label">Category</label>
-                                <select class="form-select" id="CategoryInput" name="idCategory" required>
-                                    <option value selected disabled>Please select</option>
-                                    <?php foreach($AllCategories as $category) {
-                                        echo '<option value="'.$category['id'].'">'.$category['name'].'</option>';
-                                    } ?>    
-                                    
-                                </select>
-                            </div>
-                            <input type="hidden" id="IdInput" name="id" />
-                            <div class="mb-0">
-                                <label class="col-form-label">Picture</label>
-                                <div id="">
-                                    <input id="PictureInput" class="dropify" data-max-file-size-preview="10M" data-height="100" type="file"  name="picture"  />
-                                    <div id="ValidatePicture" class="text-success"></div>
+            <!-- PRODUCT MODAL -->
+            <div class="modal fade " id="productModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered mt-3 mb-1">
+                    <div class="modal-content background text-white">
+                        <div class="modal-header">
+                            <h5 class="" id="exampleModalLabel">Add Product</h5>
+                            <button type="button" class="fa fa-xmark px-1 p-0 m-0" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body pt-0 pb-1">
+                            <form id="form" method="POST" enctype="multipart/form-data" >
+                                <div class="mb-0">
+                                    <label class="col-form-label">Name</label>
+                                    <input type="text" class="form-control" id="NameInput" name="name" />
+                                    <div id="ValidateName"></div>
                                 </div>
-                            </div>
-                            <div class="mb-0">
-                                <label class="col-form-label">Price $(USD)</label>
-                                <input type="number" step=0.01 class="form-control" id="PriceInput" name="price" /> 
-                                <div id="ValidatePrice"></div>
-                            </div>    
-                            <div class="mb-0">
-                                <label class="col-form-label">Quantity</label>
-                                <input type="number" class="form-control" id="QuantityInput" name="quantity" />
-                                <div id="ValidateQuantity"></div>
-                            </div>    
-                            <div class="mb-0">
-                                <label class="col-form-label">Description</label>
-                                <textarea class="form-control" id="DescriptionInput" rows="8" name="description"></textarea>
-                                <span id="ValidateDescription"></span>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="reset" class="btn btn-outline-light text-black" data-bs-dismiss="modal">Cancel</button>
-                                <button id="saveProduct" type="submit" name="addProductForm" class="btn btn-primary">Save</button>
-                                <div id="editProduct" style="display: none">
-                                    <!-- <button type="submit" id="deleteValidation" name="deleteProductForm" class="btn btn-danger text-black">Delete</button> -->
-                                    <button id="updateProduct" type="submit" name="updateProductForm" class="btn btn-warning text-black">Update</button>
+                                <div class="mb-0">
+                                    <label for="productCategory" class="col-form-label">Category</label>
+                                    <select class="form-select" id="CategoryInput" name="idCategory" required>
+                                        <option value selected disabled>Please select</option>
+                                        <?php foreach($AllCategories as $category) {
+                                            echo '<option value="'.$category['id'].'">'.$category['name'].'</option>';
+                                        } ?>    
+                                        
+                                    </select>
                                 </div>
-                            </div>
-                        </form>
+                                <input type="hidden" id="IdInput" name="id" />
+                                <div class="mb-0">
+                                    <label class="col-form-label">Picture</label>
+                                    <div id="">
+                                        <input id="PictureInput" class="dropify" data-max-file-size-preview="10M" data-height="100" type="file"  name="picture"  />
+                                        <div id="ValidatePicture" class="text-success"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-0">
+                                    <label class="col-form-label">Price $(USD)</label>
+                                    <input type="number" step=0.01 class="form-control" id="PriceInput" name="price" /> 
+                                    <div id="ValidatePrice"></div>
+                                </div>    
+                                <div class="mb-0">
+                                    <label class="col-form-label">Quantity</label>
+                                    <input type="number" class="form-control" id="QuantityInput" name="quantity" />
+                                    <div id="ValidateQuantity"></div>
+                                </div>    
+                                <div class="mb-0">
+                                    <label class="col-form-label">Description</label>
+                                    <textarea class="form-control" id="DescriptionInput" rows="8" name="description"></textarea>
+                                    <span id="ValidateDescription"></span>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="reset" class="btn btn-outline-light text-black" data-bs-dismiss="modal">Cancel</button>
+                                    <button id="saveProduct" type="submit" name="addProductForm" class="btn btn-primary">Save</button>
+                                    <div id="editProduct" style="display: none">
+                                        <!-- <button type="submit" id="deleteValidation" name="deleteProductForm" class="btn btn-danger text-black">Delete</button> -->
+                                        <button id="updateProduct" type="submit" name="updateProductForm" class="btn btn-warning text-black">Update</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
             <?php include_once('../include/footer.php'); ?>
             </main>
         </div>

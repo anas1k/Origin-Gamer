@@ -4,7 +4,7 @@
         <a class="" href="../core"><img src="../assets/img/logo/Logo.png" alt="" class="logo" /></a>
         <ul class="nav nav-pills mt-5 flex-column">
             <li class="nav-item m-2">
-                <a class="nav-link <?= $path == "Home" ? "active" :""; ?> d-flex align-items-center" href="../core/index.php">
+                <a class="nav-link   d-flex align-items-center" href="../core/index.php">
                     <i class="text-white  fa fa-house"></i>
                     <span class="m-4 <?= $path == "Home" ? "active-title" :"text-white"; ?>">Home</span>
                 </a>

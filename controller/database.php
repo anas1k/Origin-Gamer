@@ -1,7 +1,7 @@
 <?php
 
     require '../vendor/autoload.php';
-    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__); // if u get variables by getenv('xx'); then use ::createUnsafeImmutable(__DIR__) instead 
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
     $dotenv -> load();
     
     function connect(){
